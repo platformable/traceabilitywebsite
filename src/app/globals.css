@@ -48,3 +48,7 @@ h1 {
   h6 {
     font-size: 0.67em;
   }
+
+  .dark-purple-border {
+    border: 1px solid #3423C5;
+  }
