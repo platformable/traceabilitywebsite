@@ -1,10 +1,44 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import DataTable from "react-data-table-component";
 import { CSVLink } from "react-csv";
+import { getEcosystemTraceabilityTableData } from "../app/api/nocodb-traceability-table";
+import axios from 'axios'
+
 
 export default function EcosystemParticipantTable() {
+
+  const [newData,setNewData]=useState([])
+
+
+useEffect(()=>{
+  
+const getData = async () => {
+  try {
+    const options = {
+      method: 'GET',
+      headers: {'xc-auth': process.env.NEXT_PUBLIC_NOCODB_AUTH_TOKEN},
+      credentials: 'include',
+      mode:'cors'
+    };
+
+   const response = await  fetch('http://nocodb-app-agy4g.ondigitalocean.app/api/v1/db/data/noco/pm4ne5hx82o78n0/Entities/views/Entities?offset=0&limit=25&where=', options)
+    const finaldata = await response.json();
+    console.log("finaldata", finaldata)
+
+
+  } catch (error) {
+    console.log("")
+  }
+}
+
+getData()
+
+},[])
+
+    
+
   const navigationOptions = [
     {
       id: 1,
@@ -48,6 +82,16 @@ export default function EcosystemParticipantTable() {
     },
   ];
   const [selectedOption, setSelectedOption] = useState(navigationOptions[0]);
+
+ /*  useEffect(()=>{
+    const getData = async ()=>{
+      const valuesTaxonomy = await  getEcosystemTraceabilityTableData()
+      setNewData(valuesTaxonomy)
+    
+      console.log("newData",newData)
+    }
+    getData()
+    },[selectedOption]) */
 
   const todaysDate = new Date().toLocaleDateString("en-US", {
     day: "numeric",
