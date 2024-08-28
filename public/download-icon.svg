@@ -1,7 +1,7 @@
 <svg id="download_icon" data-name="download icon" xmlns="http://www.w3.org/2000/svg" width="41.351" height="41.351" viewBox="0 0 41.351 41.351">
   <path id="Path_437" data-name="Path 437" d="M0,0H41.351V41.351H0Z" fill="none"/>
-  <path id="Path_438" data-name="Path 438" d="M14,3V9.892a1.723,1.723,0,0,0,1.723,1.723h6.892" transform="translate(10.122 2.169)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-  <path id="Path_439" data-name="Path 439" d="M25.676,34.013H8.446A3.446,3.446,0,0,1,5,30.568V6.446A3.446,3.446,0,0,1,8.446,3H20.507l8.615,8.615V30.568A3.446,3.446,0,0,1,25.676,34.013Z" transform="translate(3.615 2.169)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-  <line id="Line_29" data-name="Line 29" y2="10.338" transform="translate(20.676 18.953)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-  <path id="Path_440" data-name="Path 440" d="M9,14l5.169,5.169L19.338,14" transform="translate(6.507 10.122)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <path id="Path_438" data-name="Path 438" d="M14,3V9.892a1.723,1.723,0,0,0,1.723,1.723h6.892" transform="translate(10.122 2.169)" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+  <path id="Path_439" data-name="Path 439" d="M25.676,34.013H8.446A3.446,3.446,0,0,1,5,30.568V6.446A3.446,3.446,0,0,1,8.446,3H20.507l8.615,8.615V30.568A3.446,3.446,0,0,1,25.676,34.013Z" transform="translate(3.615 2.169)" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+  <line id="Line_29" data-name="Line 29" y2="10.338" transform="translate(20.676 18.953)" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+  <path id="Path_440" data-name="Path 440" d="M9,14l5.169,5.169L19.338,14" transform="translate(6.507 10.122)" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
 </svg>

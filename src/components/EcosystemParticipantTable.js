@@ -216,6 +216,7 @@ export default function EcosystemParticipantTable() {
         {navigationOptions.map((option, index) => {
           return (
             <button
+            key={index}
               onClick={() => handleSelectedOption(option)}
               className={`dark-purple-border px-3 py-2 rounded-md text-xs ${
                 selectedOption.id === option.id
