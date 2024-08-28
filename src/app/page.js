@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import HomepageMainSVG from "@/components/HomepageMainSVG";
+import EcosystemParticipantSVG from "@/components/EcosystemParticipantSVG";
 import EcosystemParticipantTable from "@/components/EcosystemParticipantTable";
 import Footer from "@/components/Footer";
 
@@ -10,7 +10,7 @@ export default function Home() {
     <main className="container mx-auto">
     <Header />
     <Hero />
-    <HomepageMainSVG />
+    <EcosystemParticipantSVG />
     <EcosystemParticipantTable />
     <Footer />
     </main>
