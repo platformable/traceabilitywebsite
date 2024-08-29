@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function EcosystemParticipantSVG() {
   return (
-    <section className='mb-10'>
+    <section className='container mx-auto mb-10 px-7'>
      <svg id="traceability_model" data-name="traceability model" viewBox="0 0 1812.4 964.749">
    <defs>
      <clipPath id="clipPath">

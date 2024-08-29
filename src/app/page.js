@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main id="home-content" className="relative container mx-auto pb-14">
+    <main id="home-content" className="relative pb-14">
     <Header />
     <Hero />
     <EcosystemParticipantSVG />
