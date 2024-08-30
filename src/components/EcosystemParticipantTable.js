@@ -5,8 +5,8 @@ import DataTable from "react-data-table-component";
 import { CSVLink } from "react-csv";
 import { getEcosystemTraceabilityTableData } from "../app/api/nocodb-traceability-table";
 import axios from 'axios'
-import { useFormState } from "react-dom";
 import { useTransition } from "react";
+import Loader from "./Loader";
 const navigationOptions = [
   {
     id: 1,
@@ -55,22 +55,18 @@ export default function EcosystemParticipantTable() {
   const [newData,setNewData]=useState([])
   const [selectedOption, setSelectedOption] = useState(navigationOptions[0]);
   
-  const initialState = { data: null, errors: {} };
-  const [state, formAction] = useFormState(getEcosystemTraceabilityTableData, initialState);
-  // const updateEntityWithId = getEcosystemTraceabilityTableData.bind(null, 'dmsa')
-
   const [isPending, startTransition] = useTransition();
 
   
    useEffect(()=>{
     const getData = async ()=>{
-      const valuesTaxonomy = await getEcosystemTraceabilityTableData(selectedOption)
-      setNewData(valuesTaxonomy)
+      const entityValues = await getEcosystemTraceabilityTableData(selectedOption)
+      setNewData(entityValues?.list)
     
-      console.log("newData",valuesTaxonomy)
+      // console.log("newData",valuesTaxonomy)
       
     }
-    getData()
+    startTransition(getData)
     },[selectedOption]) 
 
   const todaysDate = new Date().toLocaleDateString("en-US", {
@@ -233,29 +229,10 @@ export default function EcosystemParticipantTable() {
   };
   return (
     <section className="container mx-auto">
-      <form
-        id="ecosystem-navigation"
-        className="grid md:grid-cols-8 grid-cols-2 gap-x-5 gap-y-5 my-10 md:px-0 px-5"
-        action={(formData) => {
-          formData.append('entityName', selectedOption?.name)
-            formAction(formData);
-        }}
-      >
-        {navigationOptions.map((option, index) => {
+   
+      <div className="grid md:grid-cols-8 grid-cols-2 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
+      {navigationOptions.map((option, index) => {
           return (
-            // <button
-            // key={index}
-            //   onClick={() => {
-            //     handleSelectedOption(option)
-            //   }}
-            //   className={`dark-purple-border px-3 py-2 rounded-md text-xs ${
-            //     selectedOption.id === option.id
-            //       ? `bg-[${option.bgColor}] text-white`
-            //       : ""
-            //   }`}
-            // >
-            //   {option.name}
-            // </button>
             <div 
             className={`relative dark-purple-border px-3 py-2 rounded-md text-xs text-[#3423C5] font-bold ${
                   selectedOption.id === option.id
@@ -274,7 +251,8 @@ export default function EcosystemParticipantTable() {
             
           );
         })}
-        </form>
+      </div>
+        
        
       <div className="my-10 shadow-md md:px-0 px-5" id="cosystem-participant-table-content">
         <div className="bg-[#3423C5] my-5 rounded-t-md py-2 px-5">
@@ -339,8 +317,8 @@ export default function EcosystemParticipantTable() {
             // dense={true}
             customStyles={customStyles}
             // defaultSortFieldId={1}
-            //   progressPending={pending}
-            //   progressComponent={<Loader />}
+              progressPending={isPending}
+              progressComponent={<Loader />}
           />
         </div>
       </div>
