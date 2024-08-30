@@ -5,93 +5,73 @@ import DataTable from "react-data-table-component";
 import { CSVLink } from "react-csv";
 import { getEcosystemTraceabilityTableData } from "../app/api/nocodb-traceability-table";
 import axios from 'axios'
-
+import { useFormState } from "react-dom";
+import { useTransition } from "react";
+const navigationOptions = [
+  {
+    id: 1,
+    name: "Standard Bodies",
+    bgColor: "#3423C5",
+  },
+  {
+    id: 2,
+    name: "Data Governance models",
+    bgColor: "#3423C5",
+  },
+  {
+    id: 3,
+    name: "Standards & Protocols",
+    bgColor: "#3423C5",
+  },
+  {
+    id: 4,
+    name: "Governments, Regulators and Policies, strategies and regulations",
+    bgColor: "#3423C5",
+  },
+  {
+    id: 5,
+    name: "Digital tools providers and Consultants",
+    bgColor: "#3423C5",
+  },
+  {
+    id: 6,
+    name: "Data Protection, Sustainability and Community Advocates",
+    bgColor: "#3423C5",
+  },
+  {
+    id: 7,
+    name: "End Users",
+    bgColor: "#3423C5",
+  },
+  {
+    id: 8,
+    name: "Indirect Beneficiaries",
+    bgColor: "#3423C5",
+  },
+];
 
 export default function EcosystemParticipantTable() {
 
   const [newData,setNewData]=useState([])
-
-
-useEffect(()=>{
-  
-const getData = async () => {
-  try {
-    const options = {
-      method: 'GET',
-      headers: {'xc-auth': process.env.NEXT_PUBLIC_NOCODB_AUTH_TOKEN},
-      credentials: 'include',
-      mode:'cors'
-    };
-
-   const response = await  fetch('http://nocodb-app-agy4g.ondigitalocean.app/api/v1/db/data/noco/pm4ne5hx82o78n0/Entities/views/Entities?offset=0&limit=25&where=', options)
-    const finaldata = await response.json();
-    console.log("finaldata", finaldata)
-
-
-  } catch (error) {
-    console.log("")
-  }
-}
-
-getData()
-
-},[])
-
-    
-
-  const navigationOptions = [
-    {
-      id: 1,
-      name: "Standard Bodies",
-      bgColor: "#3423C5",
-    },
-    {
-      id: 2,
-      name: "Data Governance models",
-      bgColor: "#3423C5",
-    },
-    {
-      id: 3,
-      name: "Standards & Protocols",
-      bgColor: "#3423C5",
-    },
-    {
-      id: 4,
-      name: "Governments, Regulators and Policies, strategies and regulations",
-      bgColor: "#3423C5",
-    },
-    {
-      id: 5,
-      name: "Digital tools providers and Consultants",
-      bgColor: "#3423C5",
-    },
-    {
-      id: 6,
-      name: "Data Protection, Sustainability and Community Advocates",
-      bgColor: "#3423C5",
-    },
-    {
-      id: 7,
-      name: "End Users",
-      bgColor: "#3423C5",
-    },
-    {
-      id: 8,
-      name: "Indirect Beneficiaries",
-      bgColor: "#3423C5",
-    },
-  ];
   const [selectedOption, setSelectedOption] = useState(navigationOptions[0]);
+  
+  const initialState = { data: null, errors: {} };
+  const [state, formAction] = useFormState(getEcosystemTraceabilityTableData, initialState);
+  // const updateEntityWithId = getEcosystemTraceabilityTableData.bind(null, 'dmsa')
 
- /*  useEffect(()=>{
+  const [isPending, startTransition] = useTransition();
+
+  
+   useEffect(()=>{
     const getData = async ()=>{
-      const valuesTaxonomy = await  getEcosystemTraceabilityTableData()
+      const valuesTaxonomy = await getEcosystemTraceabilityTableData(selectedOption)
       setNewData(valuesTaxonomy)
     
-      console.log("newData",newData)
+      console.log("newData",valuesTaxonomy)
+      
     }
     getData()
-    },[selectedOption]) */
+    },[selectedOption]) 
 
   const todaysDate = new Date().toLocaleDateString("en-US", {
     day: "numeric",
@@ -212,7 +192,7 @@ getData()
       classNames: ["py-5 text-xs", "text-xs"],
     },
     {
-      name: "HOW TRACEABILITY AND GEOLOCATION IS STANDARIZED",
+      name: "How traceability and geolocation is standardized",
       selector: (row) => row.traceability,
       width: "200px",
       wrap: true,
@@ -253,30 +233,53 @@ getData()
   };
   return (
     <section className="container mx-auto">
-      <div
+      <form
         id="ecosystem-navigation"
         className="grid md:grid-cols-8 grid-cols-2 gap-x-5 gap-y-5 my-10 md:px-0 px-5"
+        action={(formData) => {
+          formData.append('entityName', selectedOption?.name)
+            formAction(formData);
+        }}
       >
         {navigationOptions.map((option, index) => {
           return (
-            <button
-            key={index}
-              onClick={() => handleSelectedOption(option)}
-              className={`dark-purple-border px-3 py-2 rounded-md text-xs ${
-                selectedOption.id === option.id
-                  ? `bg-[${option.bgColor}] text-white`
-                  : ""
-              }`}
-            >
-              {option.name}
-            </button>
+            // <button
+            // key={index}
+            //   onClick={() => {
+            //     handleSelectedOption(option)
+            //   }}
+            //   className={`dark-purple-border px-3 py-2 rounded-md text-xs ${
+            //     selectedOption.id === option.id
+            //       ? `bg-[${option.bgColor}] text-white`
+            //       : ""
+            //   }`}
+            // >
+            //   {option.name}
+            // </button>
+            <div 
+            className={`relative dark-purple-border px-3 py-2 rounded-md text-xs text-[#3423C5] font-bold ${
+                  selectedOption.id === option.id
+                    ? `bg-[${option.bgColor}] text-white`
+                    : ""
+                }`}
+            key={index}>
+            <input type="radio" name="entityName" hidden value={option?.name} 
+             />
+            <button 
+            onClick={() => {
+              handleSelectedOption(option)
+            }}
+            type="submit" className="relative z-10">{option?.name}</button>
+            </div>
+            
           );
         })}
-      </div>
+        </form>
+       
       <div className="my-10 shadow-md md:px-0 px-5" id="cosystem-participant-table-content">
         <div className="bg-[#3423C5] my-5 rounded-t-md py-2 px-5">
           <img src="" alt="" />
-          <h3 className="text-white font-bold">Ecosystem Participant</h3>
+          <h3 className="text-white font-bold">{selectedOption?.name}</h3>
         </div>
         <div
           className="flex gap-x-5 mb-5 items-center place-content-between px-5"
@@ -288,12 +291,12 @@ getData()
             alt="cog icon"
             className="self-start"
           /> */}
-            <div>
+            {/* <div>
               <h3 className="font-bold text-[#2E1DC4] font-bold">Standards & Protocols</h3>
-            </div>
+            </div> */}
           </div>
           <div className="">
-            <CSVLink
+            {/* <CSVLink
               data={data}
               filename={`EcosystemParticipation_${todaysDate}.csv`}
               className="flex items-center gap-2 py-1 px-3 border border-[var(--button-dwnld-border)] bg-[#2E1DC4] rounded text-xs text-white"
@@ -303,7 +306,7 @@ getData()
             >
               <img src="/download-icon.svg" alt="" width={26}/>
               Download table with additional fields per each country
-            </CSVLink>
+            </CSVLink> */}
 
          {/*    <div>
               <p className="text-[12px] italic mt-2">

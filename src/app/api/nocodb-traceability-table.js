@@ -1,11 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
+'use server'
 import { Api } from 'nocodb-sdk'
 
 
-export async function getEcosystemTraceabilityTableData() {
- console.log("executing getEcosystemTraceabilityTableData")
-
+export async function getEcosystemTraceabilityTableData(prevState, formData) {
+ console.log("executing getEcosystemTraceabilityTableData",prevState)
+  const selectedParticipant = prevState?.name
+  //  formData.get('entityName')
   const api = new Api({
     baseURL: process.env.NEXT_PUBLIC_NOCODB_API_URL,
     headers: {
@@ -13,20 +14,30 @@ export async function getEcosystemTraceabilityTableData() {
     }
   })
   try {
+    const selectTable = () => {
+      const tablesToSelect = {
+        'Standards & Protocols': 'Standardsprotocols',
+        'Data Governance models': 'Datagovernancemodels'
+      }
+      const result = tablesToSelect[selectedParticipant] ? tablesToSelect[selectedParticipant] : 'Entities' 
+      return result
+    }
+    const tableSelected = selectTable()
+    // console.log("table selected",tableSelected)
     const data = await api.dbViewRow.list(
         "noco",
-        "Core Dataset Prod",
-        "ValueTaxonomy",
-        "ValueTaxonomy", {
+        "Dataset Open Traceability",
+        tableSelected,
+        tableSelected, {
           list: ['ValueGenerationCategory'],
           "offset": 0,
-          "limit": 100,
+          "limit": 1,
           "where":  ''
       })
       console.log("data",data)
-    return data   
+    return {data: data?.list, errors: {}}
   } catch (error){
-    console.log("data",jodido)
+    console.log("jodido",)
     console.log("error en el sdk" )
   }
 }
