@@ -52,3 +52,7 @@ h1 {
   .dark-purple-border {
     border: 1px solid #3423C5;
   }
+
+  .rdt_TableCol div {
+    white-space: normal !important;
+  }
