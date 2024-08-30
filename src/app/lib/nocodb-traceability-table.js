@@ -36,7 +36,6 @@ export async function getEcosystemTraceabilityTableData(prevState, formData) {
 /*       console.log("data",data) */
     return {data: data?.list, errors: {}}
   } catch (error){
-    console.log("jodido",)
     console.log("error en el sdk" )
   }
 }
