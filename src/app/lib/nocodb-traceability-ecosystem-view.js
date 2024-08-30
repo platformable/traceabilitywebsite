@@ -9,20 +9,22 @@ export async function getEcosystemVisualizationData () {
           'xc-auth': process.env.NEXT_PUBLIC_NOCODB_AUTH_TOKEN
         }
       })
-    
-    api.dbViewRow.list(
-      "noco",
-      "Open traceablity Dashboard",
-      "EcosystemView",
-      "EcosystemView", {
-        "offset": 0,
-        "limit": 25,
-        "where": ""
-    }).then(function (data) {
-      console.log(data);
-    }).catch(function (error) {
+    try {
+      const data = await api.dbViewRow.list(
+        "noco",
+        "Open traceablity Dashboard",
+        "EcosystemView",
+        "EcosystemView", {
+          "offset": 0,
+          "limit": 25,
+          "where": ""
+      })
+      return {data: data?.list, errors: {}}
+
+    }
+    catch (error) {
       console.error(error);
-    });
+    }
 }
 
 

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import DataTable from "react-data-table-component";
 import { CSVLink } from "react-csv";
-import { getEcosystemTraceabilityTableData } from "../app/api/nocodb-traceability-table";
+import { getEcosystemTraceabilityTableData } from "../app/lib/nocodb-traceability-table";
 import axios from 'axios'
 import { useTransition } from "react";
 import Loader from "./Loader";
@@ -11,41 +11,49 @@ const navigationOptions = [
   {
     id: 1,
     name: "Standard Bodies",
+    db_label: '',
     bgColor: "#3423C5",
   },
   {
     id: 2,
     name: "Data Governance models",
+    db_label: '',
     bgColor: "#3423C5",
   },
   {
     id: 3,
     name: "Standards & Protocols",
+    db_label: '',
     bgColor: "#3423C5",
   },
   {
     id: 4,
     name: "Governments, Regulators and Policies, strategies and regulations",
+    db_label: '',
     bgColor: "#3423C5",
   },
   {
     id: 5,
     name: "Digital tools providers and Consultants",
+    db_label: '',
     bgColor: "#3423C5",
   },
   {
     id: 6,
     name: "Data Protection, Sustainability and Community Advocates",
+    db_label: '',
     bgColor: "#3423C5",
   },
   {
     id: 7,
     name: "End Users",
+    db_label: '',
     bgColor: "#3423C5",
   },
   {
     id: 8,
     name: "Indirect Beneficiaries",
+    db_label: '',
     bgColor: "#3423C5",
   },
 ];

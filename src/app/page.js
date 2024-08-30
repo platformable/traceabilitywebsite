@@ -4,14 +4,12 @@ import Hero from "@/components/Hero";
 import EcosystemParticipantSVG from "@/components/EcosystemParticipantSVG";
 import EcosystemParticipantTable from "@/components/EcosystemParticipantTable";
 import Footer from "@/components/Footer";
-import {getEcosystemVisualizationData} from '@/app/api/nocodb-traceability-ecosystem-view'
+import {getEcosystemVisualizationData} from '@/app/lib/nocodb-traceability-ecosystem-view'
 
 export default async function Home() {
 
-
-
   const ecosystemViewData =  await getEcosystemVisualizationData()
-
+  console.log("data from frontend server",ecosystemViewData)
   return (
     <main id="home-content" className="relative pb-14">
     <Header />
