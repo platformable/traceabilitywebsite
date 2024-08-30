@@ -3,9 +3,10 @@
 import { Api } from 'nocodb-sdk'
 
 
-export async function getEcosystemTraceabilityTableData(prevState, formData) {
+export async function getEcosystemTraceabilityTableData(selectedOption) {
 /*  console.log("executing getEcosystemTraceabilityTableData",prevState) */
-  const selectedParticipant = prevState?.name
+  const selectedParticipant = selectedOption?.name
+
   //  formData.get('entityName')
   const api = new Api({
     baseURL: process.env.NEXT_PUBLIC_NOCODB_API_URL,
