@@ -4,7 +4,7 @@ import { Api } from 'nocodb-sdk'
 
 
 export async function getEcosystemTraceabilityTableData(prevState, formData) {
- console.log("executing getEcosystemTraceabilityTableData",prevState)
+/*  console.log("executing getEcosystemTraceabilityTableData",prevState) */
   const selectedParticipant = prevState?.name
   //  formData.get('entityName')
   const api = new Api({
@@ -33,7 +33,7 @@ export async function getEcosystemTraceabilityTableData(prevState, formData) {
           "limit": 50,
           "where":  `(EntityTipeList,eq,anyof,Tools provider)`
       })
-      // console.log("data",data)
+/*       console.log("data",data) */
     return {data: data?.list, errors: {}}
   } catch (error){
     console.log("jodido",)
