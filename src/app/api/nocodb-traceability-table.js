@@ -26,15 +26,14 @@ export async function getEcosystemTraceabilityTableData(prevState, formData) {
     // console.log("table selected",tableSelected)
     const data = await api.dbViewRow.list(
         "noco",
-        "Dataset Open Traceability",
+        "Open traceablity Dashboard",
         tableSelected,
         tableSelected, {
-          list: ['ValueGenerationCategory'],
           "offset": 0,
-          "limit": 1,
-          "where":  ''
+          "limit": 50,
+          "where":  `(EntityTipeList,eq,anyof,Tools provider)`
       })
-      console.log("data",data)
+      // console.log("data",data)
     return {data: data?.list, errors: {}}
   } catch (error){
     console.log("jodido",)
