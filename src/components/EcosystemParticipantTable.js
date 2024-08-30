@@ -63,7 +63,7 @@ export default function EcosystemParticipantTable() {
       const entityValues = await getEcosystemTraceabilityTableData(selectedOption)
       setNewData(entityValues?.list)
     
-      // console.log("newData",valuesTaxonomy)
+      console.log("newData",entityValues)
       
     }
     startTransition(getData)
@@ -152,7 +152,7 @@ export default function EcosystemParticipantTable() {
 
   const columns = [
     {
-      name: `Standards`,
+      name: `Entity`,
       selector: (row) => row?.standards,
       width: "15%",
       wrap: true,
@@ -160,23 +160,22 @@ export default function EcosystemParticipantTable() {
     },
 
     {
-      name: "Standards Body",
+      name: "Entity Type",
       selector: (row) => row.standardBody,
       sortable: true,
-      width: "13%",
+      width: "15%",
       wrap: true,
     },
     {
       name: "Description",
       selector: (row) => row.description,
       /*       sortable: true, */
-      width: "25%",
+      width: "60%",
       wrap: true,
     },
-    {
+/*     {
       name: "Notes",
       selector: (row) => row.notes,
-      /* width: "500px", */
       wrap: true,
       classNames: ["py-5 text-xs", "text-xs"],
     },
@@ -193,14 +192,14 @@ export default function EcosystemParticipantTable() {
       width: "200px",
       wrap: true,
       classNames: ["py-5 text-xs", "text-xs"],
-    },
+    }, */
     {
       name: "Link",
       selector: (row) => row.link,
       cell: (row) => {
         return (
-          <a href={row.link} className="text-[#3423C5]" target="_blank">
-            {row.link}
+          <a href={row.link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
+            Visit site
           </a>
         );
       },
@@ -233,34 +232,32 @@ export default function EcosystemParticipantTable() {
       <div className="grid md:grid-cols-8 grid-cols-2 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
       {navigationOptions.map((option, index) => {
           return (
-            <div 
-            className={`relative dark-purple-border px-3 py-2 rounded-md text-xs text-[#3423C5] font-bold ${
-                  selectedOption.id === option.id
-                    ? `bg-[${option.bgColor}] text-white`
-                    : ""
-                }`}
-            key={index}>
-            <input type="radio" name="entityName" hidden value={option?.name} 
-             />
+         
             <button 
+            key={index}
+            className={`relative dark-purple-border px-3 py-2 rounded-md text-xs text-[#3423C5] font-bold ${
+              selectedOption.id === option.id
+                ? `bg-[${option.bgColor}] text-white`
+                : ""
+            }`}
             onClick={() => {
               handleSelectedOption(option)
             }}
-            type="submit" className="relative z-10">{option?.name}</button>
-            </div>
+           >{option?.name}</button>
+
             
           );
         })}
       </div>
         
        
-      <div className="my-10 shadow-md md:px-0 px-5" id="cosystem-participant-table-content">
-        <div className="bg-[#3423C5] my-5 rounded-t-md py-2 px-5">
+      <div className="my-5  md:px-0 px-5" id="cosystem-participant-table-content">
+      {/*   <div className="bg-[#3423C5] my-5 rounded-t-md py-2 px-5">
           <img src="" alt="" />
           <h3 className="text-white font-bold">{selectedOption?.name}</h3>
-        </div>
+        </div> */}
         <div
-          className="flex gap-x-5 mb-5 items-center place-content-between px-5"
+          className="flex gap-x-5 mb-5 items-center place-content-between md:px-0 px-5"
           id="cosystem-participant-table"
         >
           <div className="flex gap-2  items-center">
@@ -302,7 +299,7 @@ export default function EcosystemParticipantTable() {
             {/* <button className="rounded-md border px-5 py-2 shadow-md bg-white">Downdload table</button> */}
           </div>
         </div>
-        <div id="ecosystem-participant-table" className="px-5">
+        <div id="ecosystem-participant-table" className="md:px-0 px-5">
           <DataTable
             columns={columns}
             data={data}
