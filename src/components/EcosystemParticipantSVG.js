@@ -1,6 +1,29 @@
-import React from 'react'
+'use client'
 
-export default function EcosystemParticipantSVG() {
+
+
+export default  function EcosystemParticipantSVG({ecosystemViewData}) {
+
+  let data ={}
+
+
+  console.log("ecosystemViewData SVG",ecosystemViewData)
+
+/*   const getEntities = ()=>{
+    array.forEach(element => {
+      
+    });
+  } */
+/* 
+    ecosystemViewData?.data?.list?.forEach(element => {
+      console.log("element.EntityType",element.EntityType)
+       data[element.EntityType]=element.Count
+    })
+
+ */
+
+
+    console.log("dataAAAA",data)
   return (
     <section className='container mx-auto mb-10 px-7'>
      <svg id="traceability_model" data-name="traceability model" viewBox="0 0 1812.4 964.749">
