@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import DataTable from "react-data-table-component";
 import { CSVLink } from "react-csv";
-import { getEcosystemTraceabilityTableData } from "../app/lib/nocodb-traceability-table";
+import { getEcosystemTraceabilityTableData } from "../app/lib/nocodb-traceability-table-filtered";
 import axios from 'axios'
 import { useTransition } from "react";
 import Loader from "./Loader";
@@ -17,7 +17,7 @@ const navigationOptions = [
   {
     id: 2,
     name: "Data Governance models",
-    db_label: 'Government',
+    db_label: 'Government, Regulatory Authority, Regulation',
     bgColor: "#3423C5",
   },
   {
@@ -29,31 +29,31 @@ const navigationOptions = [
   {
     id: 4,
     name: "Governments, Regulators and Policies, strategies and regulations",
-    db_label: '',
+    db_label: 'Policy',
     bgColor: "#3423C5",
   },
   {
     id: 5,
     name: "Digital tools providers and Consultants",
-    db_label: '',
+    db_label: 'Tools provider',
     bgColor: "#3423C5",
   },
   {
     id: 6,
     name: "Data Protection, Sustainability and Community Advocates",
-    db_label: '',
+    db_label: 'Advocates',
     bgColor: "#3423C5",
   },
   {
     id: 7,
     name: "End Users",
-    db_label: '',
+    db_label: 'Collectives, Industry associations, Supply chain, Academia, Media, Social beneficiaries',
     bgColor: "#3423C5",
   },
   {
     id: 8,
     name: "Indirect Beneficiaries",
-    db_label: '',
+    db_label: 'Social beneficiaries, Economic beneficiaries, Environment beneficiaries',
     bgColor: "#3423C5",
   },
 ];
@@ -62,10 +62,21 @@ export default function EcosystemParticipantTable() {
 
   const [newData,setNewData]=useState([])
   const [selectedOption, setSelectedOption] = useState(navigationOptions[0]);
+  const [selectedTable, setSelectedTable] = useState(navigationOptions[0]);
+
   
   const [isPending, startTransition] = useTransition();
 
-  
+  const selectTable = (participant) => {
+    const tablesToSelect = {
+      'Standards & Protocols': 'Standardsprotocols',
+      'Data Governance models': 'Datagovernancemodels'
+    }
+    const result = tablesToSelect[participant] ? tablesToSelect[participant] : 'Entities' 
+    return result
+  }
+
+
    useEffect(()=>{
     const getData = async ()=>{
       const response = await getEcosystemTraceabilityTableData(selectedOption)
@@ -74,7 +85,13 @@ export default function EcosystemParticipantTable() {
     
       console.log("newData",response)
       
+    
+      
     }
+
+    const tableSelected = selectTable(selectedOption?.name)
+    setSelectedTable(tableSelected)
+
     startTransition(getData)
     },[selectedOption]) 
 
@@ -170,7 +187,7 @@ export default function EcosystemParticipantTable() {
 
     {
       name: "Entity Type",
-      selector: (row) => row.BussinesModel,
+      selector: (row) => row.EntityType?.replaceAll('{"','').replaceAll('"}',''),
       sortable: true,
       width: "15%",
       wrap: true,
@@ -182,26 +199,6 @@ export default function EcosystemParticipantTable() {
       width: "60%",
       wrap: true,
     },
-/*     {
-      name: "Notes",
-      selector: (row) => row.notes,
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-    {
-      name: "Mandatory (from when)?",
-      selector: (row) => row.mandatory,
-      width: "120px",
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-    {
-      name: "How traceability and geolocation is standardized",
-      selector: (row) => row.traceability,
-      width: "200px",
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    }, */
     {
       name: "Link",
       selector: (row) => row.Link,
@@ -212,6 +209,53 @@ export default function EcosystemParticipantTable() {
           </a>
         );
       },
+      /* width: "500px", */
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+  ];
+  const columnsStandardsProtocols = [
+    {
+      name: `Name`,
+      selector: (row) => row?.EntityName,
+      width: "15%",
+      wrap: true,
+      sortable: true,
+    },
+
+    {
+      name: "Description",
+      selector: (row) => row.Description,
+      sortable: true,
+      width: "15%",
+      wrap: true,
+    },
+    {
+      name: "Notes",
+      selector: (row) => row.Notes,
+      /*       sortable: true, */
+      width: "30%",
+      wrap: true,
+    },
+
+    {
+      name: "Link",
+      selector: (row) => row.Link,
+      cell: (row) => {
+        return (
+          <a href={row.Link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
+            Visit site
+          </a>
+        );
+      },
+      width: "15%", 
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+    {
+      name: "Standard Body",
+      selector: (row) => row.StandardBody,
+      
       /* width: "500px", */
       wrap: true,
       classNames: ["py-5 text-xs", "text-xs"],
@@ -237,7 +281,7 @@ export default function EcosystemParticipantTable() {
   };
   return (
     <section className="container mx-auto">
-   
+   {selectedTable}
       <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-8 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
       {navigationOptions.map((option, index) => {
           return (
@@ -310,7 +354,7 @@ export default function EcosystemParticipantTable() {
         </div>
         <div id="ecosystem-participant-table" className="md:px-0 px-5">
           <DataTable
-            columns={columns}
+            columns={selectedTable === 'Entities' ? columns : columnsStandardsProtocols}
             data={newData}
             pagination
             paginationPerPage={15}
