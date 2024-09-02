@@ -13,30 +13,35 @@ const navigationOptions = [
     name: "Standards Body",
     db_label: 'Standards body',
     bgColor: "#3423C5",
+   /*  tableHeaders:columns */
   },
   {
     id: 2,
     name: "Data Governance models",
     db_label: 'Government, Regulatory Authority, Regulation',
     bgColor: "#3423C5",
+   /*  tableHeaders:columnsDataGovernanceModels */
   },
   {
     id: 3,
     name: "Standards & Protocols",
     db_label: '',
     bgColor: "#3423C5",
+    /* tableHeaders:columnsStandardsProtocols */
   },
   {
     id: 4,
     name: "Governments, Regulators and Policies, strategies and regulations",
     db_label: 'Policy',
     bgColor: "#3423C5",
+    /* tableHeaders:columns */
   },
   {
     id: 5,
     name: "Digital tools providers and Consultants",
     db_label: 'Tools provider',
     bgColor: "#3423C5",
+   /*  tableHeaders:columns */
   },
   {
     id: 6,
@@ -49,12 +54,14 @@ const navigationOptions = [
     name: "End Users",
     db_label: 'Collectives, Industry associations, Supply chain, Academia, Media, Social beneficiaries',
     bgColor: "#3423C5",
+   /*  tableHeaders:columns */
   },
   {
     id: 8,
     name: "Indirect Beneficiaries",
     db_label: 'Social beneficiaries, Economic beneficiaries, Environment beneficiaries',
     bgColor: "#3423C5",
+   /*  tableHeaders:columns */
   },
 ];
 
@@ -239,8 +246,8 @@ export default function EcosystemParticipantTable() {
     },
 
     {
-      name: "Standard Body",
-      selector: (row) => row.StandardBody,
+      name: "Entity",
+      selector: (row) => row.Entities,
       
       /* width: "500px", */
       wrap: true,
@@ -263,6 +270,64 @@ export default function EcosystemParticipantTable() {
     },
   ];
 
+
+  const columnsDataGovernanceModels = [
+    {
+      name: `Name`,
+      selector: (row) => row?.Name,
+      width: "15%",
+      wrap: true,
+      sortable: true,
+    },
+
+    {
+      name: "Description",
+      selector: (row) => row.Description,
+      /* sortable: true, */
+      width: "30%",
+      wrap: true,
+    },
+    {
+      name: "Notes",
+      selector: (row) => row.Notes,
+      /*       sortable: true, */
+      width: "30%",
+      wrap: true,
+    },
+
+    {
+      name: "Entity",
+      selector: (row) => row.Entities,
+      
+      /* width: "500px", */
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+    {
+      name: "Publicaction Date",
+      selector: (row) => row.PublicationDate,
+      
+      /* width: "500px", */
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+
+    {
+      name: "Link",
+      selector: (row) => row.Link,
+      cell: (row) => {
+        return (
+          <a href={row.Link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
+            Visit site
+          </a>
+        );
+      },
+      width: "8%", 
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+  ];
+
   const csvHeaders = [
     { label: "Standard", key: "Standards" },
     { label: "Standard body", key: "standardBody" },
@@ -279,10 +344,24 @@ export default function EcosystemParticipantTable() {
 
   const handleSelectedOption = (option) => {
     setSelectedOption(option);
+    
   };
+
+  const returnTableHeaders = (selectedOption) =>{
+
+   if(selectedOption ==='Data Governance models') {
+    return columnsDataGovernanceModels
+   }else if(selectedOption ==='Standards & Protocols') {
+    return columnsStandardsProtocols
+  } else {
+
+    return columns
+    
+  }
+
+  }
   return (
     <section className="container mx-auto">
-
       <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-8 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
       {navigationOptions?.map((option, index) => {
           return (
@@ -353,9 +432,10 @@ export default function EcosystemParticipantTable() {
             {/* <button className="rounded-md border px-5 py-2 shadow-md bg-white">Downdload table</button> */}
           </div>
         </div>
+
         <div id="ecosystem-participant-table" className="md:px-0 px-5">
           <DataTable
-            columns={selectedTable === 'Entities' ? columns : columnsStandardsProtocols}
+            columns={returnTableHeaders(selectedOption?.name)}
             data={newData}
             pagination
             paginationPerPage={15}
