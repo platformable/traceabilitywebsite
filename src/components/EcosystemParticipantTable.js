@@ -187,7 +187,7 @@ export default function EcosystemParticipantTable() {
 
     {
       name: "Entity Type",
-      selector: (row) => row.EntityType?.replaceAll('{"','').replaceAll('"}',''),
+      selector: (row) => row.EntityTypeDetailed?.replaceAll('{"','').replaceAll('"}',''),
       sortable: true,
       width: "15%",
       wrap: true,
