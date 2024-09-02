@@ -5,7 +5,7 @@
 export default  function EcosystemParticipantSVG({ecosystemViewData}) {
 
   let data = Object?.fromEntries(ecosystemViewData?.data?.map(item => [item?.EntityType, item?.Count]))
-  console.log("data",data)
+  console.log("data",ecosystemViewData)
     // ecosystemViewData?.data?.list?.forEach(element => {
     //   console.log("element.EntityType",element.EntityType)
     //    data[element.EntityType]=element.Count
@@ -930,7 +930,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                </g>
                {/* GOVERNMENTS, REGULATORS & POLICIES COUNTER */}
 
-               <text id="_9-3" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{Number(data?.['Government'])+Number(data?.['Policy'])+Number(data?.['Regulation'])+Number(data?.['Policy'])}</tspan></text>
+               <text id="_9-3" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{data?.['Governments, Regulators and Policies, strategies and regulations']}</tspan></text>
              </g>
              <g id="Group_8998" data-name="Group 8998" transform="translate(542.834 237.503)">
                <g id="Path_23137-4" data-name="Path 23137" transform="translate(116.5 596.313)" fill="#fff">
@@ -939,7 +939,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                </g>
                {/* DIGITAL TOOLS PROVIDERS & CONSULTANTS COUNTER */}
 
-               <text id="_9-4" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{data?.['Tools provider']}</tspan></text>
+               <text id="_9-4" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{data?.['Digital tools providers and Consultants']}</tspan></text>
              </g>
              <g id="Group_9022" data-name="Group 9022" transform="translate(906.717 -427.262)">
                <g id="Path_23137-5" data-name="Path 23137" transform="translate(116.5 596.313)" fill="#fff">
@@ -948,7 +948,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                </g>
                {/* DATA PROTECTION, SUSTAINABILITY  COUNTER */}
 
-               <text id="_9-5" data-name="9"  transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan textAnchor='middle' x="0" y="0">{data?.['Advocates']}</tspan></text>
+               <text id="_9-5" data-name="9"  transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan textAnchor='middle' x="0" y="0">{data?.['Data Protection, Sustainability and Community Advocates']}</tspan></text>
              </g>
            </g>
          </g>
@@ -990,7 +990,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
      <text id="_9-9" data-name="9" textAnchor='middle' transform="translate(1438.834 450.688)" 
      fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em">
       <tspan y="0" className="text-[18px]">
-        {Number(data?.['Producers'])+Number(data?.['Collectives'])+Number(data?.['Industry associations'])+Number(data?.['Supply chain'])+Number(data?.['Academia'])+Number(data?.['Media'])}</tspan></text>
+         {data?.['End Users']}</tspan></text>
    </g>
  </svg>
  
