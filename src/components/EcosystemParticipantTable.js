@@ -11,13 +11,13 @@ const navigationOptions = [
   {
     id: 1,
     name: "Standard Bodies",
-    db_label: '',
+    db_label: 'Standards body',
     bgColor: "#3423C5",
   },
   {
     id: 2,
     name: "Data Governance models",
-    db_label: '',
+    db_label: 'Government',
     bgColor: "#3423C5",
   },
   {
@@ -68,10 +68,11 @@ export default function EcosystemParticipantTable() {
   
    useEffect(()=>{
     const getData = async ()=>{
-      const entityValues = await getEcosystemTraceabilityTableData(selectedOption)
-      setNewData(entityValues?.list)
+      const response = await getEcosystemTraceabilityTableData(selectedOption)
+      if (response.errors) return; 
+      setNewData(response.data)
     
-      console.log("newData",entityValues)
+      console.log("newData",response)
       
     }
     startTransition(getData)
@@ -161,7 +162,7 @@ export default function EcosystemParticipantTable() {
   const columns = [
     {
       name: `Entity`,
-      selector: (row) => row?.standards,
+      selector: (row) => row?.EntityName,
       width: "15%",
       wrap: true,
       sortable: true,
@@ -169,14 +170,14 @@ export default function EcosystemParticipantTable() {
 
     {
       name: "Entity Type",
-      selector: (row) => row.standardBody,
+      selector: (row) => row.BussinesModel,
       sortable: true,
       width: "15%",
       wrap: true,
     },
     {
       name: "Description",
-      selector: (row) => row.description,
+      selector: (row) => row.Description,
       /*       sortable: true, */
       width: "60%",
       wrap: true,
@@ -203,10 +204,10 @@ export default function EcosystemParticipantTable() {
     }, */
     {
       name: "Link",
-      selector: (row) => row.link,
+      selector: (row) => row.Link,
       cell: (row) => {
         return (
-          <a href={row.link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
+          <a href={row.Link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
             Visit site
           </a>
         );
@@ -237,7 +238,7 @@ export default function EcosystemParticipantTable() {
   return (
     <section className="container mx-auto">
    
-      <div className="grid md:grid-cols-8 grid-cols-2 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
+      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-8 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
       {navigationOptions.map((option, index) => {
           return (
          
@@ -310,7 +311,7 @@ export default function EcosystemParticipantTable() {
         <div id="ecosystem-participant-table" className="md:px-0 px-5">
           <DataTable
             columns={columns}
-            data={data}
+            data={newData}
             pagination
             paginationPerPage={15}
             paginationRowsPerPageOptions={[15]}

@@ -6,8 +6,10 @@ import { Api } from 'nocodb-sdk'
 export async function getEcosystemTraceabilityTableData(selectedOption) {
 /*  console.log("executing getEcosystemTraceabilityTableData",prevState) */
   const selectedParticipant = selectedOption?.name
+  const parameterToFilter = selectedOption?.db_label
 
-  //  formData.get('entityName')
+  console.log("params", parameterToFilter)
+
   const api = new Api({
     baseURL: process.env.NEXT_PUBLIC_NOCODB_API_URL,
     headers: {
@@ -24,20 +26,22 @@ export async function getEcosystemTraceabilityTableData(selectedOption) {
       return result
     }
     const tableSelected = selectTable()
-    // console.log("table selected",tableSelected)
+    console.log("table selected",tableSelected)
     const data = await api.dbViewRow.list(
         "noco",
-        "Open traceablity Dashboard",
+        "Open Traceablity Dashboard",
         tableSelected,
         tableSelected, {
           "offset": 0,
           "limit": 50,
-          "where":  `(EntityTipeList,eq,anyof,Tools provider)`
+          "where":  `(EntityType,like,${parameterToFilter})`
       })
-/*       console.log("data",data) */
-    return {data: data?.list, errors: {}}
+      //  console.log("data",data) 
+    return {data: data?.list, errors: false}
   } catch (error){
     console.log("error en el sdk" )
+    return {data: [], errors: true}
+
   }
 }
 

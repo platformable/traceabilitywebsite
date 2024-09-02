@@ -1,7 +1,7 @@
 export default function Loader() {
     return (
-        <center>
+        <div className="h-[400px] flex items-center justify-center">
             <img src="/spinner.gif" alt="" />
-        </center>
+        </div>
     );
 }
