@@ -239,7 +239,65 @@ export default function EcosystemParticipantTable() {
     },
 
     {
-      name: "Standard Body",
+      name: "Entity",
+      selector: (row) => row.Entities,
+      
+      /* width: "500px", */
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+
+    {
+      name: "Link",
+      selector: (row) => row.Link,
+      cell: (row) => {
+        return (
+          <a href={row.Link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
+            Visit site
+          </a>
+        );
+      },
+      width: "10%", 
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+  ];
+
+
+  const columnsDataGovernanceModels = [
+    {
+      name: `Name`,
+      selector: (row) => row?.Name,
+      width: "15%",
+      wrap: true,
+      sortable: true,
+    },
+
+    {
+      name: "Description",
+      selector: (row) => row.Description,
+      /* sortable: true, */
+      width: "30%",
+      wrap: true,
+    },
+    {
+      name: "Notes",
+      selector: (row) => row.Notes,
+      /*       sortable: true, */
+      width: "30%",
+      wrap: true,
+    },
+
+    {
+      name: "Entity",
+      selector: (row) => row.StandardBody,
+      
+      /* width: "500px", */
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+    {
+      name: "Publicaction Date",
       selector: (row) => row.StandardBody,
       
       /* width: "500px", */
