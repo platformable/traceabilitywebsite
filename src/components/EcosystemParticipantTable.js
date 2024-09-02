@@ -10,7 +10,7 @@ import Loader from "./Loader";
 const navigationOptions = [
   {
     id: 1,
-    name: "Standard Bodies",
+    name: "Standards Body",
     db_label: 'Standards body',
     bgColor: "#3423C5",
   },
@@ -187,7 +187,7 @@ export default function EcosystemParticipantTable() {
 
     {
       name: "Entity Type",
-      selector: (row) => row.EntityType?.replaceAll('{"','').replaceAll('"}',''),
+      selector: (row) => row.EntityTypeDetailed?.replaceAll('{"','').replaceAll('"}',''),
       sortable: true,
       width: "15%",
       wrap: true,
@@ -217,7 +217,7 @@ export default function EcosystemParticipantTable() {
   const columnsStandardsProtocols = [
     {
       name: `Name`,
-      selector: (row) => row?.EntityName,
+      selector: (row) => row?.Name,
       width: "15%",
       wrap: true,
       sortable: true,
@@ -226,8 +226,8 @@ export default function EcosystemParticipantTable() {
     {
       name: "Description",
       selector: (row) => row.Description,
-      sortable: true,
-      width: "15%",
+      /* sortable: true, */
+      width: "30%",
       wrap: true,
     },
     {
@@ -236,6 +236,15 @@ export default function EcosystemParticipantTable() {
       /*       sortable: true, */
       width: "30%",
       wrap: true,
+    },
+
+    {
+      name: "Standard Body",
+      selector: (row) => row.StandardBody,
+      
+      /* width: "500px", */
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
     },
 
     {
@@ -248,15 +257,7 @@ export default function EcosystemParticipantTable() {
           </a>
         );
       },
-      width: "15%", 
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-    {
-      name: "Standard Body",
-      selector: (row) => row.StandardBody,
-      
-      /* width: "500px", */
+      width: "10%", 
       wrap: true,
       classNames: ["py-5 text-xs", "text-xs"],
     },
