@@ -11,12 +11,12 @@ export default async function Home() {
   const ecosystemViewData =  await getEcosystemVisualizationData()
   // console.log("data from frontend server",ecosystemViewData)
   return (
-    <div id="home-content" className="relative pb-14">
+    <main id="home-content" className="relative pb-14">
     <Header />
     <Hero />
     <EcosystemParticipantSVG ecosystemViewData={ecosystemViewData}/>
     <EcosystemParticipantTable />
     <Footer />
-    </div>
+    </main>
   );
 }
