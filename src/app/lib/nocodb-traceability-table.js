@@ -8,7 +8,7 @@ export async function getEcosystemTraceabilityTableData(selectedOption) {
   const selectedParticipant = selectedOption?.name
   const parameterToFilter = selectedOption?.db_label
 
-  console.log("params", parameterToFilter)
+/*   console.log("params", parameterToFilter) */
 
   const api = new Api({
     baseURL: process.env.NEXT_PUBLIC_NOCODB_API_URL,
@@ -26,15 +26,15 @@ export async function getEcosystemTraceabilityTableData(selectedOption) {
       return result
     }
     const tableSelected = selectTable()
-    console.log("table selected",tableSelected)
+/*     console.log("table selected",tableSelected) */
     const data = await api.dbViewRow.list(
         "noco",
         "Open Traceablity Dashboard",
         tableSelected,
         tableSelected, {
           "offset": 0,
-          "limit": 50,
-          "where":  `(EntityType,like,${parameterToFilter})`
+          "limit": 500,
+          "where":  `(EntityType,like,${selectedParticipant})`
       })
       //  console.log("data",data) 
     return {data: data?.list, errors: false}

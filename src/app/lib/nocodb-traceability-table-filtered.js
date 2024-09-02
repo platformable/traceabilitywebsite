@@ -34,7 +34,7 @@ export async function getEcosystemTraceabilityTableData(selectedOption) {
         tableSelected, {
           "offset": 0,
           "limit": 50,
-          "where":  `(EntityType,like,${parameterToFilter})`
+          "where":  `(EntityType,like,${selectedParticipant})`
       })
       //  console.log("data",data) 
     return {data: data?.list, errors: false}
