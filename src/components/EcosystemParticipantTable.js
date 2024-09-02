@@ -281,7 +281,6 @@ export default function EcosystemParticipantTable() {
   };
   return (
     <section className="container mx-auto">
-   {selectedTable}
       <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-8 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
       {navigationOptions.map((option, index) => {
           return (

@@ -9,14 +9,14 @@ import {getEcosystemVisualizationData} from '@/app/lib/nocodb-traceability-ecosy
 export default async function Home() {
 
   const ecosystemViewData =  await getEcosystemVisualizationData()
-  console.log("data from frontend server",ecosystemViewData)
+  // console.log("data from frontend server",ecosystemViewData)
   return (
-    <main id="home-content" className="font-poppins relative pb-14">
+    <div id="home-content" className="relative pb-14">
     <Header />
     <Hero />
     <EcosystemParticipantSVG ecosystemViewData={ecosystemViewData}/>
     <EcosystemParticipantTable />
     <Footer />
-    </main>
+    </div>
   );
 }
