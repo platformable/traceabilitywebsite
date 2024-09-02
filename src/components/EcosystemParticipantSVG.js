@@ -5,6 +5,7 @@
 export default  function EcosystemParticipantSVG({ecosystemViewData}) {
 
   let data = Object?.fromEntries(ecosystemViewData?.data?.map(item => [item?.EntityType, item?.Count]))
+  console.log("data",data)
     // ecosystemViewData?.data?.list?.forEach(element => {
     //   console.log("element.EntityType",element.EntityType)
     //    data[element.EntityType]=element.Count
@@ -912,7 +913,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                  <path d="M 22 2 C 19.29912948608398 2 16.68012046813965 2.528518676757812 14.2157096862793 3.570880889892578 C 11.83435821533203 4.578098297119141 9.695270538330078 6.020450592041016 7.857860565185547 7.857860565185547 C 6.020450592041016 9.695270538330078 4.578098297119141 11.83435821533203 3.570880889892578 14.2157096862793 C 2.528518676757812 16.68012046813965 2 19.29912948608398 2 22 C 2 24.70085906982422 2.528518676757812 27.31987953186035 3.570880889892578 29.7842903137207 C 4.578098297119141 32.16563034057617 6.020450592041016 34.30471801757812 7.857860565185547 36.14212799072266 C 9.695270538330078 37.97954940795898 11.83435821533203 39.42189788818359 14.2157096862793 40.42911911010742 C 16.68012046813965 41.47148132324219 19.29912948608398 42 22 42 C 24.70085906982422 42 27.31986999511719 41.47148132324219 29.7842903137207 40.42911911010742 C 32.16563034057617 39.42189788818359 34.30471801757812 37.97954940795898 36.14212799072266 36.14212799072266 C 37.97954940795898 34.30471801757812 39.42189788818359 32.16563034057617 40.42911911010742 29.7842903137207 C 41.47148132324219 27.31986999511719 42 24.70085906982422 42 22 C 42 19.29912948608398 41.47148132324219 16.68012046813965 40.42911911010742 14.2157096862793 C 39.42189788818359 11.83435821533203 37.97954940795898 9.695270538330078 36.14212799072266 7.857860565185547 C 34.30471801757812 6.020450592041016 32.16563034057617 4.578098297119141 29.7842903137207 3.570880889892578 C 27.31987953186035 2.528518676757812 24.70085906982422 2 22 2 M 22 0 C 34.15026092529297 0 44 9.8497314453125 44 22 C 44 34.15026092529297 34.15026092529297 44 22 44 C 9.8497314453125 44 0 34.15026092529297 0 22 C 0 9.8497314453125 9.8497314453125 0 22 0 Z" stroke="none" fill="#008cfe"/>
                </g>
                {/* STANDARDS & PROTOCOLS COUNTER */}
-               <text id="_9" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">19</tspan></text>
+               <text id="_9" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{data?.['Standards and Protocols']}</tspan></text>
              </g>
              <g id="Group_8997" data-name="Group 8997" transform="translate(263.32 -136.063)">
                <g id="Path_23137-2" data-name="Path 23137" transform="translate(116.5 596.313)" fill="#fff">
@@ -920,7 +921,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                  <path d="M 22 2 C 19.29912948608398 2 16.68012046813965 2.528518676757812 14.2157096862793 3.570880889892578 C 11.83435821533203 4.578098297119141 9.695270538330078 6.020450592041016 7.857860565185547 7.857860565185547 C 6.020450592041016 9.695270538330078 4.578098297119141 11.83435821533203 3.570880889892578 14.2157096862793 C 2.528518676757812 16.68012046813965 2 19.29912948608398 2 22 C 2 24.70085906982422 2.528518676757812 27.31987953186035 3.570880889892578 29.7842903137207 C 4.578098297119141 32.16563034057617 6.020450592041016 34.30471801757812 7.857860565185547 36.14212799072266 C 9.695270538330078 37.97954940795898 11.83435821533203 39.42189788818359 14.2157096862793 40.42911911010742 C 16.68012046813965 41.47148132324219 19.29912948608398 42 22 42 C 24.70085906982422 42 27.31986999511719 41.47148132324219 29.7842903137207 40.42911911010742 C 32.16563034057617 39.42189788818359 34.30471801757812 37.97954940795898 36.14212799072266 36.14212799072266 C 37.97954940795898 34.30471801757812 39.42189788818359 32.16563034057617 40.42911911010742 29.7842903137207 C 41.47148132324219 27.31986999511719 42 24.70085906982422 42 22 C 42 19.29912948608398 41.47148132324219 16.68012046813965 40.42911911010742 14.2157096862793 C 39.42189788818359 11.83435821533203 37.97954940795898 9.695270538330078 36.14212799072266 7.857860565185547 C 34.30471801757812 6.020450592041016 32.16563034057617 4.578098297119141 29.7842903137207 3.570880889892578 C 27.31987953186035 2.528518676757812 24.70085906982422 2 22 2 M 22 0 C 34.15026092529297 0 44 9.8497314453125 44 22 C 44 34.15026092529297 34.15026092529297 44 22 44 C 9.8497314453125 44 0 34.15026092529297 0 22 C 0 9.8497314453125 9.8497314453125 0 22 0 Z" stroke="none" fill="#36d77f"/>
                </g>
                {/* DATA HOLDERS COUNTER */}
-               <text id="_9-2" data-name="9" textAnchor='middle' transform="translate(138.346 626)"  fill="#251bc1"  fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">9</tspan></text>
+               <text id="_9-2" data-name="9" textAnchor='middle' transform="translate(138.346 626)"  fill="#251bc1"  fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{data?.['Data holder']}</tspan></text>
              </g>
              <g id="Group_9000" data-name="Group 9000" transform="translate(110.279 126.881)">
                <g id="Path_23137-3" data-name="Path 23137" transform="translate(116.5 596.313)" fill="#fff">
@@ -929,7 +930,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                </g>
                {/* GOVERNMENTS, REGULATORS & POLICIES COUNTER */}
 
-               <text id="_9-3" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">319</tspan></text>
+               <text id="_9-3" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{Number(data?.['Government'])+Number(data?.['Policy'])+Number(data?.['Regulation'])+Number(data?.['Policy'])}</tspan></text>
              </g>
              <g id="Group_8998" data-name="Group 8998" transform="translate(542.834 237.503)">
                <g id="Path_23137-4" data-name="Path 23137" transform="translate(116.5 596.313)" fill="#fff">
@@ -938,7 +939,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                </g>
                {/* DIGITAL TOOLS PROVIDERS & CONSULTANTS COUNTER */}
 
-               <text id="_9-4" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">9</tspan></text>
+               <text id="_9-4" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{data?.['Tools provider']}</tspan></text>
              </g>
              <g id="Group_9022" data-name="Group 9022" transform="translate(906.717 -427.262)">
                <g id="Path_23137-5" data-name="Path 23137" transform="translate(116.5 596.313)" fill="#fff">
@@ -947,7 +948,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                </g>
                {/* DATA PROTECTION, SUSTAINABILITY  COUNTER */}
 
-               <text id="_9-5" data-name="9"  transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan textAnchor='middle' x="0" y="0">319</tspan></text>
+               <text id="_9-5" data-name="9"  transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan textAnchor='middle' x="0" y="0">{data?.['Advocates']}</tspan></text>
              </g>
            </g>
          </g>
@@ -957,7 +958,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
              <path d="M 22 2 C 19.29912948608398 2 16.68012046813965 2.528518676757812 14.2157096862793 3.570880889892578 C 11.83435821533203 4.578098297119141 9.695270538330078 6.020450592041016 7.857860565185547 7.857860565185547 C 6.020450592041016 9.695270538330078 4.578098297119141 11.83435821533203 3.570880889892578 14.2157096862793 C 2.528518676757812 16.68012046813965 2 19.29912948608398 2 22 C 2 24.70085906982422 2.528518676757812 27.31987953186035 3.570880889892578 29.7842903137207 C 4.578098297119141 32.16563034057617 6.020450592041016 34.30471801757812 7.857860565185547 36.14212799072266 C 9.695270538330078 37.97954940795898 11.83435821533203 39.42189788818359 14.2157096862793 40.42911911010742 C 16.68012046813965 41.47148132324219 19.29912948608398 42 22 42 C 24.70085906982422 42 27.31986999511719 41.47148132324219 29.7842903137207 40.42911911010742 C 32.16563034057617 39.42189788818359 34.30471801757812 37.97954940795898 36.14212799072266 36.14212799072266 C 37.97954940795898 34.30471801757812 39.42189788818359 32.16563034057617 40.42911911010742 29.7842903137207 C 41.47148132324219 27.31986999511719 42 24.70085906982422 42 22 C 42 19.29912948608398 41.47148132324219 16.68012046813965 40.42911911010742 14.2157096862793 C 39.42189788818359 11.83435821533203 37.97954940795898 9.695270538330078 36.14212799072266 7.857860565185547 C 34.30471801757812 6.020450592041016 32.16563034057617 4.578098297119141 29.7842903137207 3.570880889892578 C 27.31987953186035 2.528518676757812 24.70085906982422 2 22 2 M 22 0 C 34.15026092529297 0 44 9.8497314453125 44 22 C 44 34.15026092529297 34.15026092529297 44 22 44 C 9.8497314453125 44 0 34.15026092529297 0 22 C 0 9.8497314453125 9.8497314453125 0 22 0 Z" stroke="none" fill="#f157ff"/>
            </g>
               {/* INDIRECT BENEFICIARIES COUNTER */}
-           <text id="_9-6" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">319</tspan></text>
+           <text id="_9-6" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">-</tspan></text>
          </g>
        </g>
      </g>
@@ -976,7 +977,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
        </g>
        {/* DATA GOVERNANCE MODELS COUNTER */}
 
-       <text id="_9-8" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">19</tspan></text>
+       <text id="_9-8" data-name="9" textAnchor='middle' transform="translate(138.346 626)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">{data?.['Data Governance Model']}</tspan></text>
      </g>
    </g>
    <g id="Group_9026" data-name="Group 9026" transform="translate(-55 -421)">
@@ -986,7 +987,10 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
      </g>
       {/* END USERS COUNTER */}
 
-     <text id="_9-9" data-name="9" textAnchor='middle' transform="translate(1438.834 450.688)" fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em"><tspan y="0">319</tspan></text>
+     <text id="_9-9" data-name="9" textAnchor='middle' transform="translate(1438.834 450.688)" 
+     fill="#251bc1" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letterSpacing="0.007em">
+      <tspan y="0" className="text-[18px]">
+        {Number(data?.['Producers'])+Number(data?.['Collectives'])+Number(data?.['Industry associations'])+Number(data?.['Supply chain'])+Number(data?.['Academia'])+Number(data?.['Media'])}</tspan></text>
    </g>
  </svg>
  
