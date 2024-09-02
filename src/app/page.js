@@ -11,7 +11,7 @@ export default async function Home() {
   const ecosystemViewData =  await getEcosystemVisualizationData()
   console.log("data from frontend server",ecosystemViewData)
   return (
-    <main id="home-content" className="relative pb-14">
+    <main id="home-content" className="font-poppins relative pb-14">
     <Header />
     <Hero />
     <EcosystemParticipantSVG ecosystemViewData={ecosystemViewData}/>
