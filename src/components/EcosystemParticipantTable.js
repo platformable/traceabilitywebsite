@@ -10,7 +10,7 @@ import Loader from "./Loader";
 const navigationOptions = [
   {
     id: 1,
-    name: "Standard Bodies",
+    name: "Standards Body",
     db_label: 'Standards body',
     bgColor: "#3423C5",
   },
@@ -187,7 +187,7 @@ export default function EcosystemParticipantTable() {
 
     {
       name: "Entity Type",
-      selector: (row) => row.EntityType?.replaceAll('{"','').replaceAll('"}',''),
+      selector: (row) => row.EntityTypeDetailed?.replaceAll('{"','').replaceAll('"}',''),
       sortable: true,
       width: "15%",
       wrap: true,
@@ -217,7 +217,7 @@ export default function EcosystemParticipantTable() {
   const columnsStandardsProtocols = [
     {
       name: `Name`,
-      selector: (row) => row?.EntityName,
+      selector: (row) => row?.Name,
       width: "15%",
       wrap: true,
       sortable: true,
@@ -226,8 +226,8 @@ export default function EcosystemParticipantTable() {
     {
       name: "Description",
       selector: (row) => row.Description,
-      sortable: true,
-      width: "15%",
+      /* sortable: true, */
+      width: "30%",
       wrap: true,
     },
     {
@@ -236,6 +236,15 @@ export default function EcosystemParticipantTable() {
       /*       sortable: true, */
       width: "30%",
       wrap: true,
+    },
+
+    {
+      name: "Entity",
+      selector: (row) => row.Entities,
+      
+      /* width: "500px", */
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
     },
 
     {
@@ -248,15 +257,65 @@ export default function EcosystemParticipantTable() {
           </a>
         );
       },
-      width: "15%", 
+      width: "10%", 
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+  ];
+
+
+  const columnsDataGovernanceModels = [
+    {
+      name: `Name`,
+      selector: (row) => row?.Name,
+      width: "15%",
+      wrap: true,
+      sortable: true,
+    },
+
+    {
+      name: "Description",
+      selector: (row) => row.Description,
+      /* sortable: true, */
+      width: "30%",
+      wrap: true,
+    },
+    {
+      name: "Notes",
+      selector: (row) => row.Notes,
+      /*       sortable: true, */
+      width: "30%",
+      wrap: true,
+    },
+
+    {
+      name: "Entity",
+      selector: (row) => row.StandardBody,
+      
+      /* width: "500px", */
       wrap: true,
       classNames: ["py-5 text-xs", "text-xs"],
     },
     {
-      name: "Standard Body",
+      name: "Publicaction Date",
       selector: (row) => row.StandardBody,
       
       /* width: "500px", */
+      wrap: true,
+      classNames: ["py-5 text-xs", "text-xs"],
+    },
+
+    {
+      name: "Link",
+      selector: (row) => row.Link,
+      cell: (row) => {
+        return (
+          <a href={row.Link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
+            Visit site
+          </a>
+        );
+      },
+      width: "10%", 
       wrap: true,
       classNames: ["py-5 text-xs", "text-xs"],
     },
@@ -282,7 +341,7 @@ export default function EcosystemParticipantTable() {
   return (
     <section className="container mx-auto">
       <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-8 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
-      {navigationOptions.map((option, index) => {
+      {navigationOptions?.map((option, index) => {
           return (
          
             <button 
