@@ -2,7 +2,7 @@
 import { Api } from "nocodb-sdk";
 
 export async function getEcosystemVisualizationData () {
- console.log("executing getEcosystemTraceabilityView")
+//  console.log("executing getEcosystemTraceabilityView")
     const api = new Api({
         baseURL: process.env.NEXT_PUBLIC_NOCODB_API_URL,
         headers: {

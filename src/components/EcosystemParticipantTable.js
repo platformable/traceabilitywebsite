@@ -90,7 +90,7 @@ export default function EcosystemParticipantTable() {
       if (response.errors) return; 
       setNewData(response.data)
     
-      console.log("newData",response)
+      // console.log("newData",response)
       
     
       

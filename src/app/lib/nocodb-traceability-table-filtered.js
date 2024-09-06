@@ -26,7 +26,7 @@ export async function getEcosystemTraceabilityTableData(selectedOption) {
       return result
     }
     const tableSelected = selectTable()
-    console.log("table selected",tableSelected)
+    // console.log("table selected",tableSelected)
     const data = await api.dbViewRow.list(
         "noco",
         "Open Traceablity Dashboard",
