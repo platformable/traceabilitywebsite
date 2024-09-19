@@ -5,7 +5,7 @@
 export default  function EcosystemParticipantSVG({ecosystemViewData}) {
 
   let data = Object?.fromEntries(ecosystemViewData?.data?.map(item => [item?.EntityType, item?.Count]))
-  console.log("data",ecosystemViewData)
+  // console.log("data",ecosystemViewData)
     // ecosystemViewData?.data?.list?.forEach(element => {
     //   console.log("element.EntityType",element.EntityType)
     //    data[element.EntityType]=element.Count
@@ -680,7 +680,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
                  <g id="Group_8986" data-name="Group 8986" clipPath="url(#clipPath-30)">
                    <g id="Group_8985" data-name="Group 8985">
                      <g id="Group_8984" data-name="Group 8984" clipPath="url(#clipPath-31)">
-                       <rect id="Rectangle_5617" data-name="Rectangle 5617" width="193.364" height="516.675" transform="translate(582.191 168.34)" fill="url(#linear-gradient-4)"/>
+                       <rect id="Rectangle_5617" data-name="Rectangle 5617" width="193.364" height="516.675" transform="translate(582.191 168.34)" fill="#CCE8FF"/>
                      </g>
                    </g>
                    <path id="Path_23591" data-name="Path 23591" d="M775.414,426.678h-1A99.5,99.5,0,0,0,757.992,371.7a42.9,42.9,0,0,1-.036-47.043,99.486,99.486,0,0,0,16.458-55.028q0-.351,0-.705c-.358-52.221-41.027-95.392-91.764-97.4q-1.9-.075-3.776-.075c-52.656.1-95.538,44.028-95.539,98.184a99.51,99.51,0,0,0,16.42,54.974,42.959,42.959,0,0,1,0,47.1,100.233,100.233,0,0,0,0,109.946,42.9,42.9,0,0,1,.035,47.042,99.5,99.5,0,0,0-16.455,55.019q0,.357,0,.713c.356,52.222,41.024,95.392,91.762,97.405q1.9.075,3.774.075c52.657-.1,95.541-44.027,95.542-98.184a99.5,99.5,0,0,0-16.422-54.974,42.959,42.959,0,0,1,0-47.1,99.5,99.5,0,0,0,16.422-54.973h2a101.5,101.5,0,0,1-16.753,56.075,40.959,40.959,0,0,0,0,44.892,101.5,101.5,0,0,1,16.753,56.076c-.1,55.224-43.734,100.179-97.542,100.184q-1.918,0-3.853-.077c-51.857-2.071-93.316-46.129-93.683-99.388q0-.364,0-.728a101.514,101.514,0,0,1,16.786-56.122,40.895,40.895,0,0,0-.035-44.837,102.238,102.238,0,0,1,0-112.15,40.954,40.954,0,0,0,0-44.892,101.5,101.5,0,0,1-16.75-56.076c.1-55.223,43.731-100.179,97.538-100.184q1.92,0,3.855.077c51.857,2.069,93.316,46.128,93.684,99.388q0,.36,0,.718a101.507,101.507,0,0,1-16.789,56.132,40.9,40.9,0,0,0,.036,44.837,101.5,101.5,0,0,1,16.753,56.075Z" fill="url(#linear-gradient-5)"/>
