@@ -5,7 +5,7 @@
 export default  function EcosystemParticipantSVG({ecosystemViewData}) {
 
   let data = Object?.fromEntries(ecosystemViewData?.data?.map(item => [item?.EntityType, item?.Count]))
-  console.log("data",ecosystemViewData)
+  // console.log("data",ecosystemViewData)
     // ecosystemViewData?.data?.list?.forEach(element => {
     //   console.log("element.EntityType",element.EntityType)
     //    data[element.EntityType]=element.Count
