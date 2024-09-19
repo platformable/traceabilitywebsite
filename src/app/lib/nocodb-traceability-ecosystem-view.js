@@ -12,7 +12,7 @@ export async function getEcosystemVisualizationData () {
     try {
       const data = await api.dbViewRow.list(
         "noco",
-        "Open traceablity Dashboard",
+        "[DASHBOARD] - Open traceablity",
         "EcosystemView",
         "EcosystemView", {
           "offset": 0,
