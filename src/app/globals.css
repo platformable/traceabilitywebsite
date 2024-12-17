@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-
+ --highlight-pink: #F157FF;
 }
 
 * {
@@ -52,4 +52,13 @@ h1 {
 
   .rdt_TableCol div {
     white-space: normal !important;
+  }
+
+
+  .bg-primary-gradient {
+    background: transparent linear-gradient(180deg, #C7F8FF 0%, #DBD3FF 100%) 0% 0% no-repeat padding-box;
+  }
+
+  #hero-home-img {
+    background: transparent linear-gradient(127deg, #10DFFF 0%, #7F6FFD 59%, #8F5EFD 100%) 0% 0% no-repeat padding-box;
   }
