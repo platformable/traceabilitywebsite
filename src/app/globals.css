@@ -19,6 +19,7 @@
 body {
   font-size: 1em;
   font-family: "Poppins", sans-serif;
+  background: transparent linear-gradient(180deg,#FFFFFF 0%, #C7F8FF 20%, #DBD3FF 80%) 0% 0% no-repeat padding-box;
   }
 
 

@@ -12,7 +12,7 @@ export default function Nav({}) {
 
   
   return (
-    <header className="relative bg-white  ">
+    <header className="relative bg-white   border-b">
       <div className="max-w-screen-xl mx-auto px-5 grid lg:grid-cols-[1fr_1.4fr_1.2fr_1.2fr_1fr] md:grid-cols-5 py-4 gap-x-4">
         <Link href="/admin-panel " className="col-span-1">
           {" "}
