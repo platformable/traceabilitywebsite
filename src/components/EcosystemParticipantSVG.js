@@ -15,7 +15,21 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
 
 
   return (
-    <section className='container mx-auto mb-10 px-7'>
+    <section className='container mx-auto mb-10 '>
+      <div className="py-2 px-5 bg-[#90E5FF] border border-b-[#000000] mb-5 ">
+        <div className="flex items-center gap-x-5">
+
+    <img src="/mini-traceability-ecosystem-icon.svg" alt="traceability-icon" />
+        <p className="font-bold">TRACEABILITY ECOSYSTEM</p>
+        <img
+              src="/info-icon.svg"
+              alt=""
+              width={15}
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="The map shows the implementation approaches based on the filters above."
+            />
+        </div>
+      </div>
      <svg id="traceability_model" data-name="traceability model" viewBox="0 0 1812.4 964.749">
    <defs>
      <clipPath id="clipPath">
