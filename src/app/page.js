@@ -4,11 +4,11 @@ import { redirect } from "next/navigation";
 
 
 export default async function Home() {
-  // const session = await getSession();
+  const session = await getSession();
   // console.log("session /", session)
-  // if (session) {
-  //   return redirect('/admin-panel')
-  // }
+  if (session) {
+    return redirect('/admin-panel')
+  }
   return (
     <main id="home-content" className="bg-primary-gradient min-h-screen max-h-screen overflow-hidden  py-20">
       <div className="max-w-screen-xl mx-auto grid lg:flex px-5 lg:p-0">
