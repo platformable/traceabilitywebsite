@@ -1,0 +1,24 @@
+{
+    "index": {
+      "title": "Home",
+      "type": "page",
+      "href": "/"
+    },
+    "about": {
+      "title": "Dashboard",
+      "type": "page",
+      "href": "/dashboard"
+    },
+   
+    "support": {
+      "title": "Support",
+      "type": "page",
+      "href": "/support-request"
+    },
+    "blog": {
+      "title": "Blog",
+      "type": "page",
+      "href": "https://platformable.com/blog",
+      "newWindow": true
+    }
+  }
