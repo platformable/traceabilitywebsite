@@ -62,3 +62,18 @@ h1 {
   #hero-home-img {
     background: transparent linear-gradient(127deg, #10DFFF 0%, #7F6FFD 59%, #8F5EFD 100%) 0% 0% no-repeat padding-box;
   }
+
+  .circular-gradient {
+    background: transparent linear-gradient(136deg, #83E3FF 0%, #EC90FF 76%, #C79AFD 100%) 0% 0% no-repeat padding-box;
+    background-position: 100% 0%;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    opacity:0.85;
+  }
+  
+  .circular-gradient:hover {
+    opacity: 1;
+  }
+  
