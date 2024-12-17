@@ -1,7 +1,7 @@
-import { Inter, Poppins } from "next/font/google";
+// import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
-const inter = Inter({ subsets: ["latin"], display: 'swap', weight: '400', variable: '' });
 
 export const metadata = {
   title: "Ecosystem participant dashboard",
@@ -11,8 +11,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body >
-        {children}</body>
+      <UserProvider>
+        <body>
+          {children}
+        </body>
+      </UserProvider>
+        
     </html>
   );
 }

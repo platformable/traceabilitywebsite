@@ -10,8 +10,6 @@ import News from "@/components/News";
 
 export default async function AdminPanel() {
   const { user } = await getSession();
-
-
  
   // console.log("user server", user);
   return (

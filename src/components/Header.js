@@ -16,7 +16,7 @@ export default function Nav({}) {
       <div className="max-w-screen-xl mx-auto px-5 grid lg:grid-cols-[1fr_1.4fr_1.2fr_1.2fr_1fr] md:grid-cols-5 py-4 gap-x-4">
         <Link href="/admin-panel " className="col-span-1">
           {" "}
-          <img src="/tracebility-logo.svg" alt="Logo" className="" />
+          <img src="/traceability-logo-home.svg" alt="Logo" className="" />
         </Link>
         {/* ORDER  Guide / Data Dictionary / Trends Report / Survey / Support */}
         <div className="hidden lg:flex col-start-2 col-end-6  items-center justify-end gap-4 px-3 border-r border-[var(--background-orange)] ">

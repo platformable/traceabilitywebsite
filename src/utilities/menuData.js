@@ -21,23 +21,23 @@ export const menuNavigatorItems = [
     //   url: '/data-dictionary',
     //   id: 3,
     // },
-    {
-      text: 'Survey',
-      icon: '/survey-icon.svg',
-      isDownloadable: false,
-      url: '/user-survey',
-      id: 'usersurvey-link',
-    },
-    {
-      text: 'Trends Report',
-      icon: '/trends-report-icon.svg',
-      isDownloadable: true,
-      url: {
-        pdfUrl: `${process.env.NEXT_PUBLIC_DEV_BACKEND_API_URL}/trends-reports/latest`,
-        filename: `Q1 2024 OBOF Quarterly Trends Report.pdf`,
-      },
-      id: 'trendsreport-link',
-    },
+    // {
+    //   text: 'Survey',
+    //   icon: '/survey-icon.svg',
+    //   isDownloadable: false,
+    //   url: '/user-survey',
+    //   id: 'usersurvey-link',
+    // },
+    // {
+    //   text: 'Trends Report',
+    //   icon: '/trends-report-icon.svg',
+    //   isDownloadable: true,
+    //   url: {
+    //     pdfUrl: `${process.env.NEXT_PUBLIC_DEV_BACKEND_API_URL}/trends-reports/latest`,
+    //     filename: `Q1 2024 OBOF Quarterly Trends Report.pdf`,
+    //   },
+    //   id: 'trendsreport-link',
+    // },
     {
       text: 'Support',
       icon: '/help-icon.svg',
