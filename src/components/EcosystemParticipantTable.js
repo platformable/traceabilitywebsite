@@ -19,45 +19,28 @@ const navigationOptions = [
   },
   {
     id: 2,
-    name: "Voluntary Sustainability Standard organisations",
-    db_label: 'Voluntary Sustainability Standard organisations',
+    name: "Sustainability systems",
+    db_label: 'Sustainability systems',
     bgColor: "#3423C5",
     borderColor:'#8751EF'
    /*  tableHeaders:columnsDataGovernanceModels */
   },
   {
-    id: 3,
-    name: "Competent authorities (regulators)",
-    db_label: '',
-    bgColor: "#3423C5",
-    borderColor:'#8751EF'
-    /* tableHeaders:columnsStandardsProtocols */
-  },
-  {
-    id: 4,
-    name: "Governments",
-    db_label: 'Policy',
-    bgColor: "#3423C5",
-    borderColor:'#8751EF'
-    /* tableHeaders:columns */
-  },
-  {
     id: 5,
-    name: "Digital data and tools providers",
-    db_label: 'Tools provider',
+    name: "Multilateral organisations",
+    db_label: 'Multilateral organisations',
     bgColor: "#3423C5",
     borderColor:'#36D77F'
    /*  tableHeaders:columns */
   },
-
   {
-    id: 6,
-    name: "Indirect Beneficiaries",
-    db_label: 'Social beneficiaries, Economic beneficiaries, Environment beneficiaries',
+    id: 5,
+    name: "Digital data and tools providers",
+    db_label: 'Digital tools providers and Consultants',
     bgColor: "#3423C5",
-    borderColor:'#F157FF'
+    borderColor:'#36D77F'
    /*  tableHeaders:columns */
-  },
+  }
 ];
 
 export default function EcosystemParticipantTable() {
@@ -142,18 +125,18 @@ export default function EcosystemParticipantTable() {
   const customStyles = {
     headCells: {
       style: {
-        backgroundColor: "#CCE8FF",
-        color: "#2E1DC4",
+        backgroundColor: "#F2EBFF",
+        /* color: "#2E1DC4", */
         paddingTop: "10px",
         paddingBottom: "10px",
         fontWeight: "bold",
         opacity: "1",
         wordWrap: "breakWord",
-        borderTop: "1px solid #2C8AF5",
-        borderLeft: "1px solid #2C8AF5",
-        borderBottom: "1px solid #2C8AF5",
+        borderTop: "1px solid #A37DEF",
+        borderLeft: "1px solid #A37DEF",
+        borderBottom: "1px solid #A37DEF",
         "&:last-child": {
-          borderRight: "1px solid #2C8AF5",
+          borderRight: "1px solid #A37DEF",
         },
       },
       headerMod: "multiline",
@@ -162,10 +145,10 @@ export default function EcosystemParticipantTable() {
     cells: {
       style: {
         padding: "5px 16px",
-        borderLeft: "1px solid #2C8AF5",
-        borderBottom: "1px solid #2C8AF5",
+        borderLeft: "1px solid #A37DEF",
+        borderBottom: "1px solid #A37DEF",
         "&:last-child": {
-          borderRight: "1px solid #2C8AF5",
+          borderRight: "1px solid #A37DEF",
         },
 
         fontSize: "12px",
@@ -182,36 +165,36 @@ export default function EcosystemParticipantTable() {
     {
       name: `Entity`,
       selector: (row) => row?.EntityName,
-      width: "15%",
+      width: "45%",
       wrap: true,
       sortable: true,
     },
 
     {
       name: "Entity Type",
-      selector: (row) => row.EntityTypeDetailed?.replaceAll('{"','').replaceAll('"}',''),
+      // selector: (row) => row.EntityTypeDetailed?.replaceAll('{"','').replaceAll('"}',''),
+      selector: (row) => row.EntityType?.replaceAll(';',', '),
       sortable: true,
-      width: "15%",
+      width: "45%",
       wrap: true,
     },
-    {
-      name: "Description",
-      selector: (row) => row.Description,
-      /*       sortable: true, */
-      width: "60%",
-      wrap: true,
-    },
+    // {
+    //   name: "Description",
+    //   selector: (row) => row.Description,
+    //   width: "60%",
+    //   wrap: true,
+    // },
     {
       name: "Link",
       selector: (row) => row.Link,
       cell: (row) => {
         return (
-          <a href={row.Link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
+          <a href={row.Link} className="px-5 cursor-pointer py-2 rounded bg-[#90E5FF]" target="_blank">
             Visit site
           </a>
         );
       },
-      /* width: "500px", */
+      width: "10%",
       wrap: true,
       classNames: ["py-5 text-xs", "text-xs"],
     },
@@ -371,7 +354,7 @@ export default function EcosystemParticipantTable() {
             />
         </div>
       </div>
-      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-6 gap-x-5 gap-y-5 my-10 md:px-5 px-5">
+      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-4 gap-x-5 gap-y-5 my-10 md:px-5 px-5">
        
       {navigationOptions?.map((option, index) => {
           return (
