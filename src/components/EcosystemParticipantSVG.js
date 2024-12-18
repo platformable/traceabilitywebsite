@@ -23,7 +23,7 @@ export default  function EcosystemParticipantSVG({ecosystemViewData}) {
         <p className="font-bold">TRACEABILITY ECOSYSTEM</p>
         <img
               src="/info-icon.svg"
-              alt=""
+              alt="traceability-icon"
               width={15}
               data-tooltip-id="my-tooltip"
               data-tooltip-content="The map shows the implementation approaches based on the filters above."
