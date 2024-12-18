@@ -17,7 +17,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
 
   return (
     <section className="container mx-auto mb-10 bg-white rounded-b-md shadow-md">
-      <div className="py-2 px-5 bg-[#90E5FF] border-b  border-b-[#000000] mb-5 ">
+      <div className="py-2 px-5 bg-[#90E5FF] border-b  border-b-[#000000] ">
         <div className="flex items-center gap-x-5">
           <Tooltip id="my-tooltip" />
           <img
@@ -35,6 +35,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
         </div>
       </div>
       <div className="p-5">
+        <img src="/ecosystem-diagram-legend.svg" alt="ecosystem diagram legend" className="mb-5"/>
         <svg
           id="traceability_ecosystem_diagram"
           data-name="traceability_ecosystem diagram"

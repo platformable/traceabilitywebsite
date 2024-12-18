@@ -10,7 +10,7 @@ export default async function Home() {
     return redirect('/admin-panel')
   }
   return (
-    <main id="home-content" className="bg-primary-gradient min-h-screen max-h-screen overflow-hidden  py-20">
+    <main id="home-content" className="min-h-screen  overflow-hidden  py-20 pb-10">
       <div className="max-w-screen-xl mx-auto grid lg:flex px-5 lg:p-0">
       <section className=" bg-white p-14 flex flex-col gap-7 lg:w-[35%] items-center lg:items-start">
         <div>
@@ -35,7 +35,6 @@ export default async function Home() {
         
       </div>
       </div>
-      <footer id="homepage-footer" className="w-full text-center  mt-10">By <img src="/platformable-logo-black.svg" alt="icon" className="inline"/></footer>
     </main>
   );
 }
