@@ -7,60 +7,55 @@ import { getEcosystemTraceabilityTableData } from "../app/lib/nocodb-traceabilit
 import axios from 'axios'
 import { useTransition } from "react";
 import Loader from "./Loader";
+import { Tooltip } from "react-tooltip";
 const navigationOptions = [
   {
     id: 1,
     name: "Standards Body",
     db_label: 'Standards body',
-    bgColor: "#3423C5",
+    bgColor: "#F2EBFF",
+    borderColor:'#8751EF'
    /*  tableHeaders:columns */
   },
   {
     id: 2,
-    name: "Data Governance models",
-    db_label: 'Government, Regulatory Authority, Regulation',
+    name: "Voluntary Sustainability Standard organisations",
+    db_label: 'Voluntary Sustainability Standard organisations',
     bgColor: "#3423C5",
+    borderColor:'#8751EF'
    /*  tableHeaders:columnsDataGovernanceModels */
   },
   {
     id: 3,
-    name: "Standards & Protocols",
+    name: "Competent authorities (regulators)",
     db_label: '',
     bgColor: "#3423C5",
+    borderColor:'#8751EF'
     /* tableHeaders:columnsStandardsProtocols */
   },
   {
     id: 4,
-    name: "Governments, Regulators and Policies, strategies and regulations",
+    name: "Governments",
     db_label: 'Policy',
     bgColor: "#3423C5",
+    borderColor:'#8751EF'
     /* tableHeaders:columns */
   },
   {
     id: 5,
-    name: "Digital tools providers and Consultants",
+    name: "Digital data and tools providers",
     db_label: 'Tools provider',
     bgColor: "#3423C5",
+    borderColor:'#36D77F'
    /*  tableHeaders:columns */
   },
+
   {
     id: 6,
-    name: "Data Protection, Sustainability and Community Advocates",
-    db_label: 'Advocates',
-    bgColor: "#3423C5",
-  },
-  {
-    id: 7,
-    name: "End Users",
-    db_label: 'Collectives, Industry associations, Supply chain, Academia, Media, Social beneficiaries',
-    bgColor: "#3423C5",
-   /*  tableHeaders:columns */
-  },
-  {
-    id: 8,
     name: "Indirect Beneficiaries",
     db_label: 'Social beneficiaries, Economic beneficiaries, Environment beneficiaries',
     bgColor: "#3423C5",
+    borderColor:'#F157FF'
    /*  tableHeaders:columns */
   },
 ];
@@ -361,22 +356,36 @@ export default function EcosystemParticipantTable() {
 
   }
   return (
-    <section className="container mx-auto">
-      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-8 gap-x-5 gap-y-5 my-10 md:px-0 px-5">
+    <section className="container mx-auto bg-white rounded-b-md shadow-md">
+        <div className="py-2 px-5 bg-[#90E5FF] border-b  border-b-[#000000] mb-5 ">
+        <div className="flex items-center gap-x-5">
+        <Tooltip id="my-tooltip" />
+    <img src="/mini-traceability-ecosystem-icon.svg" alt="traceability-icon" />
+        <p className="font-bold">TRACEABILITY ECOSYSTEM TABLE</p>
+        <img
+              src="/info-icon.svg"
+              alt=""
+              width={15}
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="The map shows the implementation approaches based on the filters above."
+            />
+        </div>
+      </div>
+      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-6 gap-x-5 gap-y-5 my-10 md:px-5 px-5">
+       
       {navigationOptions?.map((option, index) => {
           return (
          
-            <button 
-            key={index}
-            className={`relative dark-purple-border px-3 py-2 rounded-md text-xs text-[#3423C5] font-bold ${
-              selectedOption.id === option.id
-                ? `bg-[${option.bgColor}] text-white`
-                : ""
+            <button
+            key={option.id} // Use a stable key if available (id is best)
+            className={`relative px-3 py-2 rounded-md text-xs font-bold border ${ // Add 'border' class
+              selectedOption.id === option.id ? `bg-[#F2EBFF]` : `border-[${option.borderColor}]`
             }`}
-            onClick={() => {
-              handleSelectedOption(option)
-            }}
-           >{option?.name}</button>
+            onClick={() => handleSelectedOption(option)}
+            style={{ borderColor: selectedOption.id === option.id ? 'transparent' : option.borderColor }} // Inline style for border
+          >
+            {option?.name}
+          </button>
 
             
           );
@@ -384,13 +393,13 @@ export default function EcosystemParticipantTable() {
       </div>
         
        
-      <div className="my-5  md:px-0 px-5" id="cosystem-participant-table-content">
+      <div className="my-5  md:px-5 px-5" id="cosystem-participant-table-content">
       {/*   <div className="bg-[#3423C5] my-5 rounded-t-md py-2 px-5">
           <img src="" alt="" />
           <h3 className="text-white font-bold">{selectedOption?.name}</h3>
         </div> */}
         <div
-          className="flex gap-x-5 mb-5 items-center place-content-between md:px-0 px-5"
+          className="flex gap-x-5 mb-5 items-center place-content-between "
           id="cosystem-participant-table"
         >
           <div className="flex gap-2  items-center">
@@ -399,25 +408,25 @@ export default function EcosystemParticipantTable() {
             alt="cog icon"
             className="self-start"
           /> */}
-            {/* <div>
-              <h3 className="font-bold text-[#2E1DC4] font-bold">Standards & Protocols</h3>
-            </div> */}
+            <div>
+              <h3 className="font-bold  font-bold"> {selectedOption.name}</h3>
+            </div>
           </div>
           <div className="">
-            {/* <CSVLink
+            <CSVLink
               data={data}
               filename={`EcosystemParticipation_${todaysDate}.csv`}
-              className="flex items-center gap-2 py-1 px-3 border border-[var(--button-dwnld-border)] bg-[#2E1DC4] rounded text-xs text-white"
+              className="flex items-center gap-2 py-1 px-3  bg-[#90E5FF] rounded text-xs shadow"
               target="_blank"
               headers={csvHeaders}
               separator="|"
             >
-              <img src="/download-icon.svg" alt="" width={26}/>
-              Download table with additional fields per each country
-            </CSVLink> */}
+              <img src="/download-icon-black.svg" alt="" width={26}/>
+              Download table with additional fields
+            </CSVLink>
 
-         {/*    <div>
-              <p className="text-[12px] italic mt-2">
+            <div>
+              <p className="text-[9px] italic mt-2">
                 Consult the{" "}
                 <Link
                   target="_blank"
@@ -428,7 +437,7 @@ export default function EcosystemParticipantTable() {
                 </Link>{" "}
                 for an explanation of the additional fields
               </p>
-            </div> */}
+            </div>
             {/* <button className="rounded-md border px-5 py-2 shadow-md bg-white">Downdload table</button> */}
           </div>
         </div>
