@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import EcosystemParticipantSVG from "@/components/EcosystemParticipantSVG";
 import EcosystemParticipantTable from "@/components/EcosystemParticipantTable";
 import {getEcosystemVisualizationData} from '@/app/lib/nocodb-traceability-ecosystem-view'
+import EcosystemParticipantSVGCopy from "@/components/EcosystemParticipantSVGCopy";
 
 export default async function Dashboard() {
 
@@ -10,7 +11,7 @@ export default async function Dashboard() {
   return (
     <main id="home-content" className="relative pb-14">
     <Hero />
-    <EcosystemParticipantSVG ecosystemViewData={ecosystemViewData}/>
+    <EcosystemParticipantSVGCopy ecosystemViewData={ecosystemViewData}/>
     <EcosystemParticipantTable />
     </main>
   );
