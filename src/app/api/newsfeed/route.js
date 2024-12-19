@@ -8,9 +8,8 @@ export async function GET() {
     if (result.rows.length === 0) {
       return NextResponse.json({ message: 'No data found' }, { status: 200 }); 
     }
-    const response = await result.rows
 
-    return NextResponse.json(response); 
+    return NextResponse.json(result.rows); 
   } catch (error) {
     console.error("Database error:", error);
     return NextResponse.json({ 
