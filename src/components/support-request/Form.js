@@ -118,7 +118,7 @@ export default function Form({userId, email,clientToken}) {
               <button
            //type="submit"
             onClick={() => startTransition(() => formRef.current.requestSubmit())}
-            className="bg-[var(--button-background-forms)] font-bold py-2 px-6 rounded shadow "
+            className="bg-[#A37DEF] font-bold py-2 px-6 rounded shadow "
           >
             SEND
           </button>
