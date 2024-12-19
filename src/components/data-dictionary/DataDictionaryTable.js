@@ -1,0 +1,58 @@
+
+export default async function DataDictionaryTable({contentId, clientToken}) {
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_BACKEND_API_URL}/data-dictionary/data-fields/${contentId}`, {
+    headers: {
+      Authorization: `Bearer ${clientToken}`
+    }
+  })
+  
+  const dataFields = await res.json()
+  const {data} = dataFields
+
+
+ 
+  return (
+    <section id="DataDictionaryTable">
+      <div id="regulationDescription" className="bg-white rounded-md my-3  p-5">
+        <div className="flex gap-x-2 items-center mb-5">
+          <img src="/data-dictionary/Data_table_items_icon.svg" alt="" />
+          <h5 className="text-xs font-bold">Data Fields</h5>
+        </div>
+        <div
+          className="dataDictionaryDescription"
+          id="dataDictionaryDescription"
+        >
+          <div className="grid grid-cols-[2fr_7fr_1.5fr_1.5fr] gap-x-5 py-3 px-5">
+            <p className="text-xs font-bold text-[var(--font-title-color)]">Data field</p>
+            <p className="text-xs font-bold text-[var(--font-title-color)]">Description</p>
+            <p className="text-xs font-bold text-[var(--font-title-color)]">Data type</p>
+            <p className="text-xs font-bold text-[var(--font-title-color)]">Risk score</p>
+          </div>
+
+          {data
+            ? data?.map((regulation, index) => {
+                const { DataField,DataFieldDescription,DatafieldType,RiskScore } =
+                  regulation;
+                return (
+                  <div
+                    className={`grid grid-cols-[2fr_7fr_1.5fr_1.5fr] gap-x-5 ${
+                      index % 2 === 0 ? "bg-[var(--background-row-table-datadict)]" : ""
+                    } py-3 px-5`}
+                    key={index}
+                  >
+                    <p className="text-xs font-bold">
+                      {DataField}
+                    </p>
+                    <p className="text-xs">{DataFieldDescription}</p>
+                    <p className="text-xs">{DatafieldType}</p>
+                    <p className="text-xs">{RiskScore}</p>
+                  </div>
+                );
+              })
+            : ""}
+        </div>
+      </div>
+    </section>
+  );
+}

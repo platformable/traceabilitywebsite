@@ -1,14 +1,16 @@
-import React from "react";
-import { getSession } from "@auth0/nextjs-auth0";
 import { getNewsFeed } from "@/app/lib/newsFeed";
 
 export default async function News() {
   // const { user } = await getSession();
 
- const dataFetch = await getNewsFeed();
- const data = await dataFetch.json();
+ const {data, statusText, message} = await getNewsFeed();
+ 
  console.log("response en news", data);
-
+  if (statusText === "Fail") {
+    return (
+      <center>Error fetching data</center>
+    )
+  }
  
   return (
     <div className="bg-white h-full rounded-md shadow-md p-5 overflow-y ">

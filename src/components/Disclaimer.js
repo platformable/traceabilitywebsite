@@ -3,22 +3,22 @@ const disclaimerFutureFeatures = [
   {
     icon: "/interactive_dashboard_icon.svg",
     status: "Active",
-    title: "Interactive dashboard of open health",
+    title: "Interactive dashboard of open ecosystems",
   },   
   {
     icon: "/regulation_timeline_icon.svg",
     status: "Coming soon",
-    title: "Upcoming regulation timelines that may impact on open health",
+    title: "Country profiles",
   },
   {
     icon: "/country_profile_icon.svg",
     status: "Active",
-    title: "Country profiles",
+    title: "Entities that may impact on open ecosystems",
   },
   {
     icon: "/end_user_needs_icon.svg",
     status: "Coming soon",
-    title: "End User/Consumer needs",
+    title: "Data dictionary",
   },
 ];
 export default function Disclaimer() {
@@ -39,7 +39,7 @@ export default function Disclaimer() {
       </section>
       <section className="p-6 pb-12">
         <p className="mb-10 text-xl">
-          For now the dashboard includes an overview of open health regulations
+          For now the dashboard includes an overview of open ecosystems 
           but <strong>future features</strong> may include:
         </p>
         <div className="grid md:grid-cols-2 gap-5 md:gap-10">
