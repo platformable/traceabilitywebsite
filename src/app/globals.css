@@ -78,3 +78,44 @@ h1 {
     opacity: 1;
   }
   
+
+  /* NEWS SCROLLER */
+
+.custom-scrollbar {
+  height: 200px;
+  overflow-y: scroll;
+/*   background : #F5F6F9; */
+
+}
+
+.bg-news-scroll-row {
+  background: transparent linear-gradient(90deg, #F5F8FD  0%, #FDF2F1  100%) 0% 0% no-repeat padding-box;
+  border-right: 3px solid white;
+}
+/* /* To style the document scrollbar, remove `.custom-scrollbar` */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background : #E6E9F4
+
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background : #D0D9F0;
+
+  /* box-shadow:  0 0 6px rgba(0, 0, 0, 0.5); */
+} 
+
+
+
+.diagram-scrollbar {
+  min-height: 450px;
+  overflow-y: scroll;
+/*   background : #F5F6F9; */
+
+}
+
+.bg-news-scroll-row {
+  background: transparent linear-gradient(90deg, #F5F8FD  0%, #FDF2F1  100%) 0% 0% no-repeat padding-box;
+  border-right: 3px solid white;
+}
