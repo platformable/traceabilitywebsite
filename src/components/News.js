@@ -1,12 +1,13 @@
 import React from "react";
 import { getSession } from "@auth0/nextjs-auth0";
-// import { getAllNews } from "@/app/lib/newsFeed";
+import { getNewsFeed } from "@/app/lib/newsFeed";
 
 export default async function News() {
   // const { user } = await getSession();
 
-  // const data = await getAllNews(user?.APIToken);
-  const data = []
+ const dataFetch = await getNewsFeed();
+ const data = await dataFetch.json();
+ console.log("response en news", data);
 
  
   return (
@@ -16,16 +17,16 @@ export default async function News() {
         <p className="font-bold">News and updates</p>
       </div>
       <div className="custom-scrollbar mt-8">
-        {data.data &&
-          data?.data?.map((news, index) => {
+        {data &&
+          data?.map((news, index) => {
             return (
               <div
                 className="flex place-content-between gap-7 items-center bg-news-scroll-row p-5 mb-1"
                 key={index}
               >
-                <p>{news.title}</p>
+                <p>{news?.title}</p>
                 <p>
-                  {new Date(news.PublicationDate).toLocaleDateString("en-US", {
+                  {new Date(news?.PublicationDate).toLocaleDateString("en-US", {
                     day: "numeric",
                     month: "numeric",
                     year: "numeric",
@@ -35,7 +36,7 @@ export default async function News() {
               </div>
             );
           })}
-          {data.message !=='OK' && <p className="flex items-center place-content-center">{data?.message}</p>}
+          {data?.message !=='OK' && <p className="flex items-center place-content-center">{data?.message}</p>}
       </div>
     </div>
   );
