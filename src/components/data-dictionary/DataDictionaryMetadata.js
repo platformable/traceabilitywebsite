@@ -1,19 +1,14 @@
+import { getMetadata } from "@/app/lib/data-dictionary/metadata";
 
-export default async function DataDictionaryMetadata({contentId, clientToken}) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_BACKEND_API_URL}/data-dictionary/metadata/${contentId}`, {
-    headers: {
-      Authorization: `Bearer ${clientToken}`
-    }
-  })
-
-  const metadata = await res.json()
-  const {data} = metadata
+export default async function DataDictionaryMetadata({contentId,}) {
+  const {data, statusText} = await getMetadata(contentId)
+  
 
   return (
     <section id="DataDictionaryMetadata">
       <div id="regulationDescription" className="bg-white rounded-md my-3  p-5">
         <div className="flex gap-x-2 items-center mb-5">
-          <img src="/data-dictionary/Metadata_icon.svg" alt="" />
+          <img src="/Metadata_icon.svg" alt="data dictionary metadata icon" />
           <h5 className="text-xs font-bold">Metadata</h5>
         </div>
         <div

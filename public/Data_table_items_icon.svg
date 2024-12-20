@@ -1,0 +1,13 @@
+<svg id="Data_table_items_icon" data-name="Data table items_icon" xmlns="http://www.w3.org/2000/svg" width="25" height="29.999" viewBox="0 0 25 29.999">
+  <g id="Rectangle_2014" data-name="Rectangle 2014" transform="translate(0 4.748)" fill="#fff" stroke="#000" stroke-width="1">
+    <path d="M1,0H24a1,1,0,0,1,1,1V21.251a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V1A1,1,0,0,1,1,0Z" stroke="none"/>
+    <path d="M1,.5H24a.5.5,0,0,1,.5.5V21.251a3.5,3.5,0,0,1-3.5,3.5H4a3.5,3.5,0,0,1-3.5-3.5V1A.5.5,0,0,1,1,.5Z" fill="none"/>
+  </g>
+  <line id="Line_367" data-name="Line 367" y2="26.199" transform="translate(12.5 3.051)" fill="none" stroke="#000" stroke-width="1"/>
+  <line id="Line_368" data-name="Line 368" x1="24" transform="translate(0.5 14.02)" fill="none" stroke="#000" stroke-width="1"/>
+  <line id="Line_369" data-name="Line 369" x1="24" transform="translate(0.5 21.734)" fill="none" stroke="#000" stroke-width="1"/>
+  <g id="Rectangle_2011" data-name="Rectangle 2011" stroke="#000" stroke-width="1">
+    <path d="M4,0H21a4,4,0,0,1,4,4V6a1,1,0,0,1-1,1H1A1,1,0,0,1,0,6V4A4,4,0,0,1,4,0Z" stroke="none"/>
+    <path d="M4,.5H21A3.5,3.5,0,0,1,24.5,4V6a.5.5,0,0,1-.5.5H1A.5.5,0,0,1,.5,6V4A3.5,3.5,0,0,1,4,.5Z" fill="none"/>
+  </g>
+</svg>

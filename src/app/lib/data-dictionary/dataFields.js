@@ -3,7 +3,7 @@ import * as db from '../../api/dbConnection';
 
 export const getDataFields = async (dataFieldName) => {
   try {
-    const result = await db.query(`select * from traceability."Datafields" where "DatatableList" LIKE ANY (ARRAY['{"%${dataFieldName}%"}']) order by "DataField" asc`);
+    const result = await db.query(`select * from "traceability"."Datafields" where "DatatableList" LIKE ANY (ARRAY['{"%${dataFieldName}%"}']) order by "DataField" asc`);
 
     if (result.rows.length === 0) {
       throw new Error(`No data found`);

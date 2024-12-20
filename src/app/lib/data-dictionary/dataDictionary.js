@@ -1,7 +1,7 @@
 'use server';
 import * as db from '../../api/dbConnection';
 
-export const getDataFields = async () => {
+export const getDataIndex = async () => {
   try {
     const result = await db.query(`select "DatatableName", "DatatableIcon","DatatableDescription", "DatatableSource", "DatatableUsage", "DatatableMethod", "DatabaseMethodShort","DatatableLimitations", "DatatableEquity", "DatatableFrequpdate", "DatatableLastupdated" from "traceability"."Datatables" d order by "DatatableName" asc`);
 

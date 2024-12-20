@@ -5,7 +5,6 @@ export default async function News() {
 
  const {data, statusText, message} = await getNewsFeed();
  
- console.log("response en news", data);
   if (statusText === "Fail") {
     return (
       <center>Error fetching data</center>
@@ -38,7 +37,7 @@ export default async function News() {
               </div>
             );
           })}
-          {data?.message !=='OK' && <p className="flex items-center place-content-center">{data?.message}</p>}
+          {data?.statusText === 'Fail' && <p className="flex items-center place-content-center">{data?.message}</p>}
       </div>
     </div>
   );

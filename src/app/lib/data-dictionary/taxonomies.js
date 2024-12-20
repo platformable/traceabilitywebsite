@@ -1,15 +1,14 @@
 'use server';
 import * as db from '../../api/dbConnection';
 
-export const getMetadata = async (dataFieldName) => {
+export const getTaxonomies = async (dataFieldName) => {
   try {
     const result = await db.query(`select * from "traceability"."Datataxonomy" where "DatateblesList" LIKE ANY (ARRAY['{"%${dataFieldName}%"}']) ORDER BY "TaxonomyCategory"  asc, "TaxonomyListOrder" asc, "TaxonomySubcategory" desc;`);
 
-    if (result.rows.length === 0) {
+    if (result.fields.length === 0) {
       throw new Error(`No data found`);
     }
-    const data = result.rows
-  
+    const data = result.fields
     return {data: data, statusText: 'OK'};
   } catch (error) {
     console.error('Error fetching metadata:', error);
