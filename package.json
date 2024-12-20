@@ -9,13 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.5.0",
     "axios": "^1.7.5",
+    "jose": "^5.9.6",
     "next": "14.2.6",
+    "nextra": "^2.13.4",
+    "nextra-theme-docs": "^2.13.4",
     "nocodb-sdk": "^0.255.0",
+    "pg": "^8.13.1",
     "react": "^18",
     "react-csv": "^2.2.2",
     "react-data-table-component": "^7.6.2",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-toastify": "^11.0.1",
+    "react-tooltip": "^5.28.0"
   },
   "devDependencies": {
     "eslint": "^8",
