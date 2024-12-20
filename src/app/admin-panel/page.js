@@ -9,7 +9,7 @@ import News from "@/components/News";
 
 
 export default async function AdminPanel() {
-  const { user } = await getSession();
+  // const { user } = await getSession();
  
   // console.log("user server", user);
   return (
@@ -20,7 +20,7 @@ export default async function AdminPanel() {
             <div className="">
               <div className="text-[var(--home-highlight)] text-[46px] leading-tight">
                 <span className="opacity-80">Hello,</span><br/>
-                <span className="font-bold"> {user?.name}</span>
+                <span className="font-bold"> {/* {user?.name} */}</span>
               </div>
               <span className="font-bold text-3xl">
                 What do want to do today?
@@ -70,7 +70,7 @@ export default async function AdminPanel() {
                 Standards
               </button>
             </Link> */}
-            {user?.role === "Supervisor" ? (
+    {/*         {user?.role === "Supervisor" ? (
               <Link href="admin-panel/users">
                 <button className="bg-white w-full flex flex-col items-center  h-56 gap-y-4 rounded-md font-bold shadow px-6 py-5 lg:p-8">
                   <div className="circular-gradient transition rounded-full p-6 aspect-square">
@@ -87,7 +87,7 @@ export default async function AdminPanel() {
               </Link>
             ) : (
               ""
-            )}
+            )} */}
             </div>
           </div>
           <div className="lg:pt-20 pt-0 mb-10">

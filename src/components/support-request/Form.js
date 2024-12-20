@@ -36,7 +36,7 @@ export default function Form({userId, email,clientToken}) {
   
   /* const updateUserWithClientToken = sendSupportRequest.bind(null, clientToken) */
 
-  console.log("state",state)
+
   return (
     <>
       <ToastContainer

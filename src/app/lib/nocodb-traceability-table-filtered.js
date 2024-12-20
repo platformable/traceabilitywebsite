@@ -8,7 +8,7 @@ export async function getEcosystemTraceabilityTableData(selectedOption) {
   const selectedParticipant = selectedOption?.db_label
   const parameterToFilter = selectedOption?.db_label
 
-   console.log("selectedOption", selectedOption)
+
 
   const api = new Api({
     baseURL: process.env.NEXT_PUBLIC_NOCODB_API_URL,
