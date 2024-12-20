@@ -1,16 +1,9 @@
+import { getMetadata } from "@/app/lib/data-dictionary/metadata";
 import Link from "next/link";
 import React from "react";
 
-export default async function DataDictionaryDescription({contentId,clientToken}) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_BACKEND_API_URL}/data-dictionary/metadata/${contentId}`, {
-    headers: {
-      Authorization: `Bearer ${clientToken}`
-    }
-  })
-  
-  const description = await res.json()
-  const {data} = description
-
+export default async function DataDictionaryDescription({contentId}) {
+  const {data, statusText} = await getMetadata(contentId)
   return (
     <section id="indices" className="">
       <div className="flex justify-between items-center border-b border-black py-3">
@@ -50,8 +43,8 @@ export default async function DataDictionaryDescription({contentId,clientToken})
       >
         <div id="regulationIcon" className="flex justify-center ">
           <img
-            // src="/data-dictionary/Regulatory_Complexity_Indices_icon.svg"
-            src={data && JSON.parse(data?.DatatableIcon)[0]?.url}
+            src="/Regulatory_Complexity_Indices_icon.svg"
+            // src={data && JSON.parse(data?.DatatableIcon)[0]?.url}
             alt="Data table icon"
             // width={95}
           />

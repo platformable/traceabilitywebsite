@@ -1,22 +1,15 @@
+import { getDataFields } from "@/app/lib/data-dictionary/dataFields";
 
-export default async function DataDictionaryTable({contentId, clientToken}) {
+export default async function DataDictionaryTable({contentId}) {
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_BACKEND_API_URL}/data-dictionary/data-fields/${contentId}`, {
-    headers: {
-      Authorization: `Bearer ${clientToken}`
-    }
-  })
-  
-  const dataFields = await res.json()
-  const {data} = dataFields
-
+  const {data, statusText} = await getDataFields(contentId)
 
  
   return (
     <section id="DataDictionaryTable">
       <div id="regulationDescription" className="bg-white rounded-md my-3  p-5">
         <div className="flex gap-x-2 items-center mb-5">
-          <img src="/data-dictionary/Data_table_items_icon.svg" alt="" />
+          <img src="/Data_table_items_icon.svg" alt="Data fields icon" />
           <h5 className="text-xs font-bold">Data Fields</h5>
         </div>
         <div

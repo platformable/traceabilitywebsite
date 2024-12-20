@@ -1,12 +1,8 @@
+import {  getDataIndex } from "@/app/lib/data-dictionary/dataDictionary";
 import DataDictionaryNavContent from "./DataDictionaryNavContent";
 
-export default async function DataDictionaryNav({ clientToken }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_BACKEND_API_URL}/data-dictionary/`, {
-    headers: {
-      Authorization: `Bearer ${clientToken}`
-    }
-  })
-  const indexes = await res.json()
+export default async function DataDictionaryNav({  }) {
+  const {data, statusText} = await getDataIndex();
   
   return (
     <>
@@ -23,7 +19,7 @@ export default async function DataDictionaryNav({ clientToken }) {
         </div>
       </div>
       <div className="mt-2 mb-5">
-        <DataDictionaryNavContent indexes={indexes.data}/>
+        <DataDictionaryNavContent indexes={data}/>
       </div>
     </>
   );

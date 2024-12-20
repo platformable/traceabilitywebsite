@@ -10,8 +10,7 @@ export const getMetadata = async (dataFieldName) => {
     if (result.rows.length === 0) {
       throw new Error(`No data found`);
     }
-    const data = result.rows
-  
+    const data = result.rows[0]
     return {data: data, statusText: 'OK'};
   } catch (error) {
     console.error('Error fetching metadata:', error);

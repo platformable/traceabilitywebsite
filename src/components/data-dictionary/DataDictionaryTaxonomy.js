@@ -1,20 +1,14 @@
+import { getTaxonomies } from "@/app/lib/data-dictionary/taxonomies";
 
-export default async function DataDictionaryTaxonomy({contentId, clientToken}) {
+export default async function DataDictionaryTaxonomy({contentId}) {
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_BACKEND_API_URL}/data-dictionary/taxonomy/${contentId}`, {
-    headers: {
-      Authorization: `Bearer ${clientToken}`
-    }
-  })
-  
-  const taxonomy = await res.json()
-  const {data} = taxonomy
+  const {data, statusText} = await getTaxonomies(contentId)
  
   return (
     <section id="DataDictionaryTaxonomy">
     <div id="regulationDescription" className="bg-white rounded-md mt-3  p-5">
       <div className="flex gap-x-2 items-center mb-5">
-        <img src="/data-dictionary/Taxonomy_icon.svg" alt="" />
+        <img src="/Taxonomy_icon.svg" alt="Data dictionary taxonomies icon" />
         <h5 className="text-xs font-bold">Taxonomy</h5>
       </div>
       <div

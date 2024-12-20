@@ -5,7 +5,7 @@ import DataDictionaryTaxonomy from "@/components/data-dictionary/DataDictionaryT
 import { Suspense } from "react";
 
 
-export default async function DataDictionaryRightContent({searchParams, clientToken}) {
+export default async function DataDictionaryRightContent({searchParams}) {
 
   let contentId = searchParams?.contentId 
   
@@ -13,16 +13,16 @@ export default async function DataDictionaryRightContent({searchParams, clientTo
   return (
     <>
     <Suspense fallback={<center className="text-xs">Loading...</center>}> 
-      <DataDictionaryDescription contentId={contentId} clientToken={clientToken} />
+      <DataDictionaryDescription contentId={contentId} />
     </Suspense>
     <Suspense fallback={<center className="text-xs">Loading...</center>}> 
-      <DataDictionaryMetadata contentId={contentId} clientToken={clientToken} />
+      <DataDictionaryMetadata contentId={contentId} />
     </Suspense>
     <Suspense fallback={<center className="text-xs">Loading...</center>}> 
-      <DataDictionaryTable contentId={contentId} clientToken={clientToken} />
+      <DataDictionaryTable contentId={contentId} />
     </Suspense>
     <Suspense fallback={<center className="text-xs">Loading...</center>}> 
-      <DataDictionaryTaxonomy contentId={contentId} clientToken={clientToken} />
+      <DataDictionaryTaxonomy contentId={contentId} />
     </Suspense>
     </>
   );
