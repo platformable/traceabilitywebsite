@@ -14,13 +14,13 @@ export const menuNavigatorItems = [
       url: '/docs',
       id: 'userguide-link',
     },
-    // {
-    //   text: 'Data dictionary',
-    //   icon: '/data-dictionary-icon.svg',
-    //   isDownloadable: false,
-    //   url: '/data-dictionary',
-    //   id: 3,
-    // },
+    {
+      text: 'Data dictionary',
+      icon: '/data-dictionary-icon.svg',
+      isDownloadable: false,
+      url: '/data-dictionary',
+      id: 3,
+    },
     // {
     //   text: 'Survey',
     //   icon: '/survey-icon.svg',
