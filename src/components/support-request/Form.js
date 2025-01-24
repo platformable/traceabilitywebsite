@@ -23,10 +23,12 @@ export default function Form({userId, email,clientToken}) {
 
     if (!state.success) {
      
-        toast.error(state.message);
+        toast.error('An error occurred, please try again');
      } else {
-        toast.success(state.message);
-        timeOutID = setTimeout(() =>   router.push('/admin-panel'),2000)
+      console.log("state",state)
+        toast.success('Form submitted successfully');
+
+       timeOutID = setTimeout(() =>   router.push('/admin-panel'),2000)
       }
   
     setIsLoading(false)
