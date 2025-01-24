@@ -10,7 +10,7 @@ export default async function Home() {
     return redirect('/admin-panel')
   }
   return (
-    <main id="home-content" className="min-h-screen  overflow-hidden  py-20 pb-10">
+    <main id="home-content" className=" flex justify-center items-center overflow-hidden  py-20 pb-10">
       <div className="max-w-screen-xl mx-auto grid lg:flex px-5 lg:p-0">
       <section className=" bg-white p-14 flex flex-col gap-7 lg:w-[35%] items-center lg:items-start">
         <div>
@@ -23,7 +23,7 @@ export default async function Home() {
           </div>
         </div>
         <p className="font-medium text-lg">
-        Get updates on global open health regulations, understand digital health strategies to boost healthcare access, drive data-driven decisions, improve efficiency, and promote equity for impactful outcomes and cost savings.
+        Visualise the traceability ecosystem, track trends, competitors and potential partnerships
         </p>
         <Link id="login-link" href="/api/auth/login">
         <button className="bg-[var(--highlight-pink)] px-7 text-white font-medium rounded-md shadow py-2">Login / Register</button>
