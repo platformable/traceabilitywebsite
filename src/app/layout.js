@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <UserProvider>
-        <body>
+        <body className="min-h-screen">
           
           {children}
           <Footer />

@@ -19,9 +19,9 @@ export default async function AdminPanel() {
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-2 max-w-screen-xl mx-auto lg:px-0 px-5">
           <div className="pt-20 mb-10 flex flex-col justify-center lg:justify-start gap-7 w-full  ">
             <div className="">
-              <div className="text-[var(--home-highlight)] text-[46px] leading-tight">
+              <div className="text-[var(--highlight-pink)] text-[46px] leading-tight">
                 <span className="opacity-80">Hello,</span><br/>
-                <span className="font-bold"> {/* {user?.name} */}</span>
+                {/* <span className="font-bold "> { user?.name } </span> */}
               </div>
               <span className="font-bold text-3xl">
                 What do want to do today?

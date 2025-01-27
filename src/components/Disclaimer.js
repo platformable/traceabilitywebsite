@@ -28,7 +28,7 @@ export default function Disclaimer() {
         <div className="p-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="md:w-3/6">
             <div className="mb-4"><strong>Traceability</strong> Dashboard</div>
-            <p className="text-[var(--home-highlight)] font-bold text-2xl leading-normal">
+            <p className="text-[var(--highlight-pink)] font-bold text-2xl leading-normal">
             The Traceability Dashboard helps you analyze key aspects of the traceability context in more than 120 countries
             </p>
           </div>
