@@ -8,42 +8,64 @@ import axios from 'axios'
 import { useTransition } from "react";
 import Loader from "./Loader";
 import { Tooltip } from "react-tooltip";
-const navigationOptions = [
-  {
-    id: 1,
-    name: "Standards Body",
-    db_label: 'Standards body',
-    bgColor: "#F2EBFF",
-    borderColor:'#8751EF'
-   /*  tableHeaders:columns */
-  },
-  {
-    id: 2,
-    name: "Sustainability systems",
-    db_label: 'Sustainability systems',
-    bgColor: "#3423C5",
-    borderColor:'#8751EF'
-   /*  tableHeaders:columnsDataGovernanceModels */
-  },
-  {
-    id: 5,
-    name: "Multilateral organisations",
-    db_label: 'Multilateral organisations',
-    bgColor: "#3423C5",
-    borderColor:'#36D77F'
-   /*  tableHeaders:columns */
-  },
-  {
-    id: 5,
-    name: "Digital data and tools providers",
-    db_label: 'Digital tools providers and Consultants',
-    bgColor: "#3423C5",
-    borderColor:'#36D77F'
-   /*  tableHeaders:columns */
-  }
-];
+
 
 export default function EcosystemParticipantTable() {
+
+
+  const navigationOptions = [
+    {
+      id: 1,
+      name: "Standards bodies/ Sustainability systems",
+      db_label: 'Standards body',
+      bgColor: "#F2EBFF",
+      borderColor:'#8751EF'
+     /*  tableHeaders:columns */
+    },
+    {
+      id: 2,
+      name: "Governments",
+      db_label: 'Governments',
+       bgColor: "#F2EBFF",
+      borderColor:'#8751EF'
+     /*  tableHeaders:columnsDataGovernanceModels */
+    },
+    {
+      id: 3,
+      name: "Standards/Policies",
+      db_label: 'Standards/Policies',
+       bgColor: "#C7F8FF",
+      borderColor:'#3FDEF8'
+     /*  tableHeaders:columns */
+    },
+    {
+      id: 4,
+      name: "Regulations",
+      db_label: 'Regulations',
+        bgColor: "#C7F8FF",
+      borderColor:'#3FDEF8'
+     /*  tableHeaders:columnsDataGovernanceModels */
+    },
+    {
+      id: 5,
+      name: "Multilateral organisations",
+      db_label: 'Multilateral organisations',
+      bgColor: "#E8FFF3",
+      borderColor:'#36D77F'
+     /*  tableHeaders:columns */
+    },
+    {
+      id: 6,
+      name: "Data and digital tools providers",
+      db_label: 'Data and digital tools providers',
+       bgColor: "#E8FFF3",
+      borderColor:'#36D77F'
+     /*  tableHeaders:columns */
+    }
+    
+   
+  ];
+
 
   const [newData,setNewData]=useState([])
   const [selectedOption, setSelectedOption] = useState(navigationOptions[0]);
@@ -98,28 +120,7 @@ export default function EcosystemParticipantTable() {
       traceability: "-",
       link: "http://wwww.platformable.com",
     },
-    {
-      standards: "standards Name",
-      standardBody: "Fair trade international",
-      description:
-        "Placeat impedit porro laudantium ut asperiores, exercitationem quia ullam provident eum eaque rerum, facere totam nobis deleniti delectus ducimus ratione. Quae hic fugiat, illum placeat amet vero animi aspernatur error? Molestias quae doloribus ad consectetur aperiam dolorem quos numquam animi vitae. Saepe quam ullam laborum unde vel blanditiis eligendi fuga animi distinctio voluptatum inventore numquam dolore quo voluptates, similique adipisci recusandae vero eos ex non, veritatis tempore itaque eum voluptate! Ipsum?",
-      notes:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, atque! Neque, fugiat, quisquam molestias quibusdam illo expedita unde accusamus maiores assumenda rerum incidunt tenetur optio",
-      mandatory: "12-2-2024",
-      traceability: "-",
-      link: "http://wwww.platformable.com",
-    },
-    {
-      standards: "standards Name",
-      standardBody: "Fair trade international",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, atque! Neque, fugiat, quisquam molestias quibusdam illo expedita unde accusamus maiores assumenda rerum incidunt tenetur optio quod exercitationem officia fugit dolore earum obcaecati delectus non, reprehenderit voluptatem ullam atque. Consequatur optio deleniti labore, alias officia eligendi nostrum commodi dolores sed? Placeat impedit porro laudantium ut asperiores, exercitationem quia ullam provident eum eaque rerum, facere totam nobis deleniti delectus ducimus ratione. Quae hic fugiat",
-      notes:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, atque! Neque, fugiat, quisquam molestias quibusdam illo expedita unde accusamus maiores assumenda rerum incidunt tenetur optio",
-      mandatory: "12-2-2024",
-      traceability: "-",
-      link: "http://wwww.platformable.com",
-    },
+  
   ];
 
   const customStyles = {
@@ -354,18 +355,18 @@ export default function EcosystemParticipantTable() {
             />
         </div>
       </div>
-      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-4 gap-x-5 gap-y-5 my-10 md:px-5 px-5">
+      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-6 gap-x-5 gap-y-5 my-10 md:px-5 px-5">
        
       {navigationOptions?.map((option, index) => {
           return (
          
             <button
             key={option.id} // Use a stable key if available (id is best)
-            className={`relative px-3 py-2 rounded-md text-xs font-bold border ${ // Add 'border' class
-              selectedOption.id === option.id ? `bg-[#F2EBFF]` : `border-[${option.borderColor}]`
+            className={`relative px-3 py-2 rounded-md text-xs font-bold border ${ 
+              selectedOption.id === option.id ? `` : `border-[${option.borderColor}]`
             }`}
             onClick={() => handleSelectedOption(option)}
-            style={{ borderColor: selectedOption.id === option.id ? 'transparent' : option.borderColor }} // Inline style for border
+            style={{ borderColor: selectedOption.id === option.id ? option.borderColor : option.borderColor,backgroundColor:selectedOption.id===option.id ? option.bgColor:'' }} 
           >
             {option?.name}
           </button>
