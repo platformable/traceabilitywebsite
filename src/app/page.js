@@ -11,7 +11,7 @@ export default async function Home() {
     return redirect('/admin-panel')
   }
   return (
-    <main id="home-content" className=" flex justify-center items-center overflow-hidden  py-20 pb-10">
+    <main id="home-content" className=" flex justify-center items-center overflow-hidden  pt-20 pb-7">
       <div className="max-w-screen-xl mx-auto grid lg:flex px-5 lg:p-0">
       <section className=" bg-white p-14 flex flex-col gap-7 lg:w-[35%] items-center lg:items-start">
         <div>

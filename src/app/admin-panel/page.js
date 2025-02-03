@@ -15,7 +15,7 @@ export default async function AdminPanel() {
  
   return (
     <>
-    <section id="dashboard-content" className="bg-primary-gradient min-h-screen pb-24">
+    <section id="dashboard-content" className="bg-primary-gradient min-h-screen pb-7">
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-2 max-w-screen-xl mx-auto lg:px-0 px-5">
           <div className="pt-20 mb-10 flex flex-col justify-center lg:justify-start gap-7 w-full  ">
             <div className="">

@@ -21,11 +21,11 @@ const SupportRequest = withPageAuthRequired(
     return (
       <main
         id="content-user-survey"
-        className="relative py-20  shadow-inner bg-[#F2F0FF]"
+        className="relative pt-20 pb-7 shadow-inner "
       >
         <section 
         // id="header-user-survey"
-         className="max-w-[600px] pb-10 mx-auto border border-[var(--border-container-forms)] bg-white shadow-lg rounded-xl px-12 mb-10 py-7">
+         className="max-w-[600px] pb-10 mx-auto border border-[var(--border-container-forms)] bg-white shadow-lg rounded-xl px-12  py-7">
           <div className="  flex items-center  gap-x-2">
           <div className="w-11 h-11 circular-gradient rounded-full flex items-center justify-center">
               <img
