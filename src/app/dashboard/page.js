@@ -9,7 +9,7 @@ export default async function Dashboard() {
   const ecosystemViewData =  await getEcosystemVisualizationData()
   // console.log("data from frontend server",ecosystemViewData)
   return (
-    <main id="home-content" className="relative pb-14">
+    <main id="home-content" className="relative pb-7">
     <Hero />
     <EcosystemParticipantSVGCopy ecosystemViewData={ecosystemViewData}/>
     <EcosystemParticipantTable />

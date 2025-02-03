@@ -15,7 +15,7 @@ export default async function AdminPanel() {
  
   return (
     <>
-    <section id="dashboard-content" className="bg-primary-gradient min-h-screen pb-24">
+    <section id="dashboard-content" className="bg-primary-gradient min-h-screen pb-7">
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-2 max-w-screen-xl mx-auto lg:px-0 px-5">
           <div className="pt-20 mb-10 flex flex-col justify-center lg:justify-start gap-7 w-full  ">
             <div className="">
@@ -39,7 +39,7 @@ export default async function AdminPanel() {
                   />
                 </div>
                 Traceability  <br />
-                Ecosystem
+                dashboard
               </button>
             </Link>
             <Link href="/dashboard/country" prefetch={true}>
@@ -53,7 +53,7 @@ export default async function AdminPanel() {
                   />
                 </div>
                 What is an <br />
-                Open Ecosystem? 
+                open ecosystem? 
               </button>
             </Link>
         
