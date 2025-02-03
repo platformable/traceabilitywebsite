@@ -3,7 +3,7 @@ const disclaimerFutureFeatures = [
   {
     icon: "/interactive_dashboard_icon.svg",
     status: "Active",
-    title: "Interactive dashboard of open ecosystems",
+    title: "Interactive dashboard of regulations, related standards, and relevant policies",
   },   
   {
     icon: "/regulation_timeline_icon.svg",
@@ -13,12 +13,12 @@ const disclaimerFutureFeatures = [
   {
     icon: "/country_profile_icon.svg",
     status: "Active",
-    title: "Entities that may impact on open ecosystems",
+    title: "Governments, standards bodies, and multilateral organisations that are involved in the traceability ecosystem",
   },
   {
     icon: "/end_user_needs_icon.svg",
     status: "Coming soon",
-    title: "Data dictionary",
+    title: "Data and digital tools providers",
   },
 ];
 export default function Disclaimer() {
@@ -28,8 +28,8 @@ export default function Disclaimer() {
         <div className="p-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="md:w-3/6">
             <div className="mb-4"><strong>Traceability</strong> Dashboard</div>
-            <p className="text-[var(--home-highlight)] font-bold text-2xl leading-normal">
-            The Traceability Dashboard helps you analyze key aspects of the traceability context in more than 120 countries
+            <p className="text-[var(--highlight-pink)] font-bold text-2xl leading-normal">
+            Our Traceability Dashboard helps you understand the emerging traceability digital and data ecosystem so that you can take an ecosystem design approach
             </p>
           </div>
           <div id="hero-home-imgX" className="w-full md:w-2/6 ">
@@ -39,8 +39,7 @@ export default function Disclaimer() {
       </section>
       <section className="p-6 pb-12">
         <p className="mb-10 text-xl">
-          For now the dashboard includes an overview of open ecosystems 
-          but <strong>future features</strong> may include:
+        Current and future features include:
         </p>
         <div className="grid md:grid-cols-2 gap-5 md:gap-10">
           {disclaimerFutureFeatures.map((item) => (

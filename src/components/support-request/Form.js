@@ -15,24 +15,23 @@ export default function Form({userId, email,clientToken}) {
   const [isLoading, setIsLoading] = useState(false)
   const [isPending, startTransition] = useTransition();
 
-  
+  console.log("state",state)
 
-  useEffect(() => {
-    let timeOutID;
-    setIsLoading(true)
+useEffect(() => {
+  let timeOutID;
+  setIsLoading(true)
+  if (state.message) {
+    if (!state.isSucceded) {
+      toast.error(state.message);
+    } else {
+      toast.success(state.message);
+      timeOutID = setTimeout(() =>   router.push('/admin-panel'),2000)
+    }
+  }
+  setIsLoading(false)
 
-    if (!state.success) {
-     
-        toast.error(state.message);
-     } else {
-        toast.success(state.message);
-        timeOutID = setTimeout(() =>   router.push('/admin-panel'),2000)
-      }
-  
-    setIsLoading(false)
-
-    return () => clearTimeout(timeOutID);
-  }, [state]);
+  return () => clearTimeout(timeOutID);
+}, [state]);
   
   /* const updateUserWithClientToken = sendSupportRequest.bind(null, clientToken) */
 

@@ -1,22 +1,22 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 export default function DataDictionaryNavContent({ indexes }) {
   const router = useRouter();
   const searchParams = useSearchParams()
   const contentIdSelected = searchParams.get('contentId')
 
-  const setParams = (id) => {
+  const setParams = useCallback((id) => {
     router.replace(`?contentId=${id}`, { scroll: false, shallow: true });
-  };
+  }, [router]);
 
   useEffect(() => {
     if (!contentIdSelected) {
       //Select first content of the menu when page finish loading
       setParams(indexes[0]?.DatatableName)
     }
-  }, [])
+  }, [contentIdSelected, indexes ])
   
   return (
     <>

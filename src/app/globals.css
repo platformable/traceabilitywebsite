@@ -9,10 +9,71 @@
 }
 
 * {
-  margin: 0;
+/*   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; */
   scroll-behavior: smooth;
+}
+
+:root {
+  --data-table-color-hover-area: #ffa0a0;
+
+  --background-gradient-first-color: #FFF1E4 ;
+  --background-gradient-second-color: #FEE6FF ;
+
+  --button-gradient-first-color: #FFDBA2 ;
+  --button-gradient-second-color: #EDACFA ;
+  --button-gradient-third-color: #D0ABFC ;
+
+  --home-highlight: #F157FF;
+  --orange: #f4671b;
+  /* --primary-color: #FBE9E6; */
+   /* linear-gradient(136deg,#FFDBA2 0%,#EDACFA   76%,#D0ABFC 100%) 0% 0%; */
+   --pimary-color: linear-gradient(136deg,#FFDBA2 0%,#EDACFA   76%,#D0ABFC 100%) 0% 0%;
+   --primary-color-light: #FEF5FF;
+  
+   --user-rol-supervisor: #FFFABA;
+   --user-rol-user: #C1FCE1;
+
+   --status-active: #E0E0E0;
+   --status-not-active: #9AF3FA;
+
+
+  --border-table-users: #F6CBFF;
+  --button-background-forms: #FCDCFF;
+  --border-container-forms: #FCDCFF;
+  --font-title-color: #5A23EC;
+  --background-row-table-datadict: #F2F0FF;
+  --input-background-forms: #F2F0FF;
+
+  /* --background-gradient-first-color: #FFE9E2;
+  --background-gradient-second-color: #eaeffb; */
+
+
+  --button-dwnld-bg: #E1DBFF;
+  --button-dwnld-border: #131523;
+
+ 
+  --mktdriven: #83bdff;
+  --regdriven-mandatory: #83BDFF;
+  --regdriven-voluntary: #00D969;
+  --regdriven-undefined: #FFDD33;
+
+  --regcomplex-high: #D67898;
+  --regcomplex-medium: #E3A4B9;
+  --regcomplex-low: #F1D1DC;
+  --regcomplex-verylow: #F8EAEF;
+
+  --regclarity-high: #57B1B9;
+  --regclarity-medium: #8ECBD0;
+  --regclarity-low: #C6E4E7;
+  --regclarity-verylow: #E2EFF0;
+
+  --table-primary-color:#FCDCFF;
+  --dashboard-table-heading:#E1DBFF;
+  
+  --country-profile-green:#88F0C8;
+  --country-profile-red:#F78E8E;
 }
 
 
@@ -46,6 +107,12 @@ h1 {
   h6 {
     font-size: 0.67em;
   }
+
+  input[type="radio"], input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+  
 
   .dark-purple-border {
     border: 1px solid #3423C5;
@@ -118,4 +185,11 @@ h1 {
 .bg-news-scroll-row {
   background: transparent linear-gradient(90deg, #F5F8FD  0%, #FDF2F1  100%) 0% 0% no-repeat padding-box;
   border-right: 3px solid white;
+}
+
+/* sdfa dfas dfasdfadsfasdfadsfa */
+
+
+.bg-regulations {
+  background-color: #C7F8FF;
 }

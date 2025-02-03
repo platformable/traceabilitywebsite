@@ -1,0 +1,10 @@
+<svg id="edit_user_information_icon" data-name="edit user information icon" xmlns="http://www.w3.org/2000/svg" width="24.852" height="30" viewBox="0 0 24.852 30">
+  <g id="Group_2943" data-name="Group 2943" transform="translate(-89.148 -122.302)">
+    <rect id="Rectangle_1921" data-name="Rectangle 1921" width="24.852" height="30" rx="4" transform="translate(89.148 122.302)" fill="#fcdcff"/>
+    <line id="Line_349" data-name="Line 349" x2="14.73" transform="translate(94.105 131.5)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1.5"/>
+    <line id="Line_350" data-name="Line 350" x2="3.395" transform="translate(94.105 143.275)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1.5"/>
+    <line id="Line_351" data-name="Line 351" x2="8.395" transform="translate(94.105 137.387)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1.5"/>
+  </g>
+  <path id="Path" d="M6.075,0,.225,5.85A.681.681,0,0,0,0,6.375v2.25a.709.709,0,0,0,.75.75H3a.681.681,0,0,0,.525-.225L9.375,3.3Z" transform="translate(10.852 16.823)"/>
+  <path id="Path-2" data-name="Path" d="M4.65,2.475,2.4.225a.725.725,0,0,0-1.05,0L0,1.575l3.3,3.3,1.35-1.35A.725.725,0,0,0,4.65,2.475Z" transform="translate(17.977 14.198)"/>
+</svg>

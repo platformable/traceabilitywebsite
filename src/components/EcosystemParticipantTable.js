@@ -8,77 +8,83 @@ import axios from 'axios'
 import { useTransition } from "react";
 import Loader from "./Loader";
 import { Tooltip } from "react-tooltip";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { columnsMultilateralOrgs, columnsStandardsProtocolsAndPolicies, columnsRegulations, columnsStandardBodies, columnsDataGovernanceModels } from "../utilities/tableColumns";
+
 const navigationOptions = [
   {
+    id: 2,
+    name: "Governments",
+    db_label: 'government',
+     bgColor: "#F2EBFF",
+    borderColor:'#8751EF'
+   /*  tableHeaders:columnsDataGovernanceModels */
+  },
+  {
     id: 1,
-    name: "Standards Body",
-    db_label: 'Standards body',
+    name: "Standards bodies/Sustainability systems",
+    db_label: 'standard-bodies',
     bgColor: "#F2EBFF",
     borderColor:'#8751EF'
    /*  tableHeaders:columns */
   },
+ 
   {
-    id: 2,
-    name: "Sustainability systems",
-    db_label: 'Sustainability systems',
-    bgColor: "#3423C5",
-    borderColor:'#8751EF'
+    id: 3,
+    name: "Standards/Policies",
+    db_label: 'policies',
+     bgColor: "#C7F8FF",
+    borderColor:'#3FDEF8'
+   /*  tableHeaders:columns */
+  },
+  {
+    id: 4,
+    name: "Regulations",
+    db_label: 'regulations',
+      bgColor: "#C7F8FF",
+    borderColor:'#3FDEF8'
    /*  tableHeaders:columnsDataGovernanceModels */
   },
   {
     id: 5,
     name: "Multilateral organisations",
-    db_label: 'Multilateral organisations',
-    bgColor: "#3423C5",
+    db_label: 'multilateral',
+    bgColor: "#E8FFF3",
     borderColor:'#36D77F'
    /*  tableHeaders:columns */
   },
   {
-    id: 5,
-    name: "Digital data and tools providers",
-    db_label: 'Digital tools providers and Consultants',
-    bgColor: "#3423C5",
-    borderColor:'#36D77F'
+    id: 6,
+    name: "Data and digital tools providers",
+    db_label: 'digital-data',
+     bgColor: "#E8FFF3",
+    borderColor:'#36D77F',
+    isDisabled: true
    /*  tableHeaders:columns */
   }
+  
+ 
 ];
 
-export default function EcosystemParticipantTable() {
 
+export default function EcosystemParticipantTable() {
+  const { user } = useUser();
   const [newData,setNewData]=useState([])
   const [selectedOption, setSelectedOption] = useState(navigationOptions[0]);
-  const [selectedTable, setSelectedTable] = useState(navigationOptions[0]);
-
-  
   const [isPending, startTransition] = useTransition();
-
-  const selectTable = (participant) => {
-    const tablesToSelect = {
-      'Standards & Protocols': 'Standardsprotocols',
-      'Data Governance models': 'Datagovernancemodels'
-    }
-    const result = tablesToSelect[participant] ? tablesToSelect[participant] : 'Entities' 
-    return result
-  }
-
 
    useEffect(()=>{
     const getData = async ()=>{
-      const response = await getEcosystemTraceabilityTableData(selectedOption)
+      const response = await getEcosystemTraceabilityTableData(selectedOption, user?.APIToken)
       if (response.errors) return; 
       setNewData(response.data)
     
-      // console.log("newData",response)
-      
-    
-      
     }
+    if (user?.APIToken) {
+      startTransition(getData)
 
-    const tableSelected = selectTable(selectedOption?.name)
-    setSelectedTable(tableSelected)
-
-    startTransition(getData)
-    },[selectedOption]) 
+    }
+    },[selectedOption, user?.APIToken]) 
 
   const todaysDate = new Date().toLocaleDateString("en-US", {
     day: "numeric",
@@ -86,41 +92,6 @@ export default function EcosystemParticipantTable() {
     year: "numeric",
     timezone: "America/New_York",
   });
-  const data = [
-    {
-      standards: "standards Name",
-      standardBody: "Fair trade international",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, atque! Neque, fugiat, quisquam molestias quibusdam illo expedita unde accusamus maiores assumenda rerum incidunt tenetur optio quod exercitationem officia fugit dolore earum obcaecati delectus non, reprehenderit voluptatem ullam atque. Consequatur optio deleniti labore, alias officia eligendi nostrum commodi dolores sed? Placeat impedit porro laudantium ut asperiores, exercitationem quia ullam provident eum eaque rerum, facere totam nobis deleniti delectus ducimus ratione. Quae hic fugiatm dolore quo voluptates, similique adipisci recusandae vero eos ex non, veritatis tempore itaque eum voluptate! Ipsum?",
-      notes:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, atque! Neque, fugiat, quisquam molestias quibusdam illo expedita unde accusamus maiores assumenda rerum incidunt tenetur optio",
-      mandatory: "12-2-2024",
-      traceability: "-",
-      link: "http://wwww.platformable.com",
-    },
-    {
-      standards: "standards Name",
-      standardBody: "Fair trade international",
-      description:
-        "Placeat impedit porro laudantium ut asperiores, exercitationem quia ullam provident eum eaque rerum, facere totam nobis deleniti delectus ducimus ratione. Quae hic fugiat, illum placeat amet vero animi aspernatur error? Molestias quae doloribus ad consectetur aperiam dolorem quos numquam animi vitae. Saepe quam ullam laborum unde vel blanditiis eligendi fuga animi distinctio voluptatum inventore numquam dolore quo voluptates, similique adipisci recusandae vero eos ex non, veritatis tempore itaque eum voluptate! Ipsum?",
-      notes:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, atque! Neque, fugiat, quisquam molestias quibusdam illo expedita unde accusamus maiores assumenda rerum incidunt tenetur optio",
-      mandatory: "12-2-2024",
-      traceability: "-",
-      link: "http://wwww.platformable.com",
-    },
-    {
-      standards: "standards Name",
-      standardBody: "Fair trade international",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, atque! Neque, fugiat, quisquam molestias quibusdam illo expedita unde accusamus maiores assumenda rerum incidunt tenetur optio quod exercitationem officia fugit dolore earum obcaecati delectus non, reprehenderit voluptatem ullam atque. Consequatur optio deleniti labore, alias officia eligendi nostrum commodi dolores sed? Placeat impedit porro laudantium ut asperiores, exercitationem quia ullam provident eum eaque rerum, facere totam nobis deleniti delectus ducimus ratione. Quae hic fugiat",
-      notes:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, atque! Neque, fugiat, quisquam molestias quibusdam illo expedita unde accusamus maiores assumenda rerum incidunt tenetur optio",
-      mandatory: "12-2-2024",
-      traceability: "-",
-      link: "http://wwww.platformable.com",
-    },
-  ];
 
   const customStyles = {
     headCells: {
@@ -161,150 +132,6 @@ export default function EcosystemParticipantTable() {
     },
   };
 
-  const columns = [
-    {
-      name: `Entity`,
-      selector: (row) => row?.EntityName,
-      width: "45%",
-      wrap: true,
-      sortable: true,
-    },
-
-    {
-      name: "Entity Type",
-      // selector: (row) => row.EntityTypeDetailed?.replaceAll('{"','').replaceAll('"}',''),
-      selector: (row) => row.EntityType?.replaceAll(';',', '),
-      sortable: true,
-      width: "45%",
-      wrap: true,
-    },
-    // {
-    //   name: "Description",
-    //   selector: (row) => row.Description,
-    //   width: "60%",
-    //   wrap: true,
-    // },
-    {
-      name: "Link",
-      selector: (row) => row.Link,
-      cell: (row) => {
-        return (
-          <a href={row.Link} className="px-5 cursor-pointer py-2 rounded bg-[#90E5FF]" target="_blank">
-            Visit site
-          </a>
-        );
-      },
-      width: "10%",
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-  ];
-  const columnsStandardsProtocols = [
-    {
-      name: `Name`,
-      selector: (row) => row?.Name,
-      width: "15%",
-      wrap: true,
-      sortable: true,
-    },
-
-    {
-      name: "Description",
-      selector: (row) => row.Description,
-      /* sortable: true, */
-      width: "30%",
-      wrap: true,
-    },
-    {
-      name: "Notes",
-      selector: (row) => row.Notes,
-      /*       sortable: true, */
-      width: "30%",
-      wrap: true,
-    },
-
-    {
-      name: "Entity",
-      selector: (row) => row.Entities,
-      
-      /* width: "500px", */
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-
-    {
-      name: "Link",
-      selector: (row) => row.Link,
-      cell: (row) => {
-        return (
-          <a href={row.Link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
-            Visit site
-          </a>
-        );
-      },
-      width: "10%", 
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-  ];
-
-
-  const columnsDataGovernanceModels = [
-    {
-      name: `Name`,
-      selector: (row) => row?.Name,
-      width: "15%",
-      wrap: true,
-      sortable: true,
-    },
-
-    {
-      name: "Description",
-      selector: (row) => row.Description,
-      /* sortable: true, */
-      width: "30%",
-      wrap: true,
-    },
-    {
-      name: "Notes",
-      selector: (row) => row.Notes,
-      /*       sortable: true, */
-      width: "30%",
-      wrap: true,
-    },
-
-    {
-      name: "Entity",
-      selector: (row) => row.Entities,
-      
-      /* width: "500px", */
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-    {
-      name: "Publicaction Date",
-      selector: (row) => row.PublicationDate,
-      
-      /* width: "500px", */
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-
-    {
-      name: "Link",
-      selector: (row) => row.Link,
-      cell: (row) => {
-        return (
-          <a href={row.Link} className="text-white px-5 py-2 rounded bg-[#3423C5]" target="_blank">
-            Visit site
-          </a>
-        );
-      },
-      width: "8%", 
-      wrap: true,
-      classNames: ["py-5 text-xs", "text-xs"],
-    },
-  ];
 
   const csvHeaders = [
     { label: "Standard", key: "Standards" },
@@ -325,17 +152,18 @@ export default function EcosystemParticipantTable() {
     
   };
 
-  const returnTableHeaders = (selectedOption) =>{
-
-   if(selectedOption ==='Data Governance models') {
-    return columnsDataGovernanceModels
-   }else if(selectedOption ==='Standards & Protocols') {
-    return columnsStandardsProtocols
-  } else {
-
-    return columns
-    
-  }
+  const returnTableHeaders = (selectedOptionName) =>{
+    if(selectedOptionName ==='Regulations') {
+      return columnsRegulations
+    } else if(selectedOptionName ==='Multilateral organisations') {
+      return columnsMultilateralOrgs
+    }else if(selectedOptionName ==='Standards bodies/Sustainability systems') {
+      return columnsStandardBodies
+    }else if(selectedOptionName ==='Governments') {
+      return columnsDataGovernanceModels
+     }else if(selectedOptionName ==='Standards/Policies') {
+      return columnsStandardsProtocolsAndPolicies
+    } 
 
   }
   return (
@@ -354,18 +182,19 @@ export default function EcosystemParticipantTable() {
             />
         </div>
       </div>
-      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-4 gap-x-5 gap-y-5 my-10 md:px-5 px-5">
+      <div className="grid grid-rows-4 grid-cols-2 md:grid-rows-1 md:grid-cols-6 gap-x-5 gap-y-5 my-10 md:px-5 px-5">
        
       {navigationOptions?.map((option, index) => {
           return (
          
             <button
             key={option.id} // Use a stable key if available (id is best)
-            className={`relative px-3 py-2 rounded-md text-xs font-bold border ${ // Add 'border' class
-              selectedOption.id === option.id ? `bg-[#F2EBFF]` : `border-[${option.borderColor}]`
+            className={`relative px-3 py-2 rounded-md text-xs font-bold border  ${ 
+              selectedOption.id === option.id ? `` : `border-[${option.borderColor}]`
             }`}
+            disabled={option.isDisabled}
             onClick={() => handleSelectedOption(option)}
-            style={{ borderColor: selectedOption.id === option.id ? 'transparent' : option.borderColor }} // Inline style for border
+            style={{ borderColor: selectedOption.id === option.id ? option.borderColor : option.borderColor,backgroundColor:selectedOption.id===option.id ? option.bgColor:'' }} 
           >
             {option?.name}
           </button>
@@ -396,7 +225,7 @@ export default function EcosystemParticipantTable() {
             </div>
           </div>
           <div className="">
-            <CSVLink
+            {/* <CSVLink
               data={data}
               filename={`EcosystemParticipation_${todaysDate}.csv`}
               className="flex items-center gap-2 py-1 px-3  bg-[#90E5FF] rounded text-xs shadow"
@@ -406,7 +235,7 @@ export default function EcosystemParticipantTable() {
             >
               <img src="/download-icon-black.svg" alt="" width={26}/>
               Download table with additional fields
-            </CSVLink>
+            </CSVLink> */}
 
             <div>
               <p className="text-[9px] italic mt-2">
