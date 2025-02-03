@@ -9,7 +9,7 @@ import News from "@/components/News";
 
 
 export default async function AdminPanel() {
-  // const { user } = await getSession();
+  const { user } = await getSession();
  
   // console.log("user server", user);
   return (
@@ -38,7 +38,7 @@ export default async function AdminPanel() {
                   />
                 </div>
                 Traceability  <br />
-                Ecosystem
+                dashboard
               </button>
             </Link>
             <Link href="/dashboard/country" prefetch={true}>
@@ -52,7 +52,7 @@ export default async function AdminPanel() {
                   />
                 </div>
                 What is an <br />
-                Open Ecosystem? 
+                open ecosystem? 
               </button>
             </Link>
         
@@ -70,7 +70,7 @@ export default async function AdminPanel() {
                 Standards
               </button>
             </Link> */}
-    {/*         {user?.role === "Supervisor" ? (
+             {user?.role === "Supervisor" ? (
               <Link href="admin-panel/users">
                 <button className="bg-white w-full flex flex-col items-center  h-56 gap-y-4 rounded-md font-bold shadow px-6 py-5 lg:p-8">
                   <div className="circular-gradient transition rounded-full p-6 aspect-square">
@@ -87,7 +87,7 @@ export default async function AdminPanel() {
               </Link>
             ) : (
               ""
-            )} */}
+            )} 
             </div>
           </div>
           <div className="lg:pt-20 pt-0 mb-10">

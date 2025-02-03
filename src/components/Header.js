@@ -76,7 +76,7 @@ export default function Nav({}) {
             <div className="w-[33.5px] h-[33.5px] circular-gradient rounded-full flex items-center justify-center">
               <img src="/user-nav-icon.svg" alt="user icon" className="w-4" />
             </div>
-            <span id="name-user-navigator" className="opacity-80 font-medium text-sm">
+            <span id="name-user-navigator" className="hidden md:block opacity-80 font-medium text-sm">
               {user?.name} {user?.lastname}
             </span>
             <NavMenu />
