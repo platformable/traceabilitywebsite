@@ -20,13 +20,13 @@ export const GET = handleAuth({
         returnTo: `/`,
       });
     },
-    // 'silent-login': handleLogin({
-	// 		authorizationParams: {
-	// 			prompt: 'none',
-	// 			redirect_uri: `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/callback`,
-	// 		},
-    //   returnTo: `/user/settings`,
-	// 	}),
+    'silent-login': handleLogin({
+			authorizationParams: {
+				prompt: 'none',
+				redirect_uri: `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/callback`,
+			},
+      returnTo: `/user/settings`,
+		}),
 });
 
 export const dynamic = 'force-dynamic';

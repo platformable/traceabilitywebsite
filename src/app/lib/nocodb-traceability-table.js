@@ -60,7 +60,7 @@ export async function sendSupportRequest(clientToken,formData) {
   };
 
   try {
-    fetch(
+ const sendData =  await  fetch(
       "https://nocodb-app-agy4g.ondigitalocean.app/api/v1/db/data/noco/Platformable Operational/SupportRequest",
       {
         method: 'POST',
@@ -70,23 +70,15 @@ export async function sendSupportRequest(clientToken,formData) {
         },
         body: JSON.stringify(data)
       })
-      .then(response => {console.log("support message sent")
-
-         
-    
+      const response = await sendData.json()
+      if(!response.Id) {
+        return { message: "Something went wrong, try again", isSucceded: false};
       }
+   
+      return  { message: "Thank you for completing the survey!", isSucceded: true};
       
-    )  // Parse the response as JSON
-      .then(data => {
-        // Handle successful response with data
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-        // Handle the error, like displaying an error message to the user
-      });
 
   } catch (error) {
-    console.log("PASA NO OK")
     //redirect(`/admin-panel`);
     console.log("support request error", error)
     return {
