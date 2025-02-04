@@ -38,7 +38,7 @@ export default async function Home() {
         
       </section>
       <div id="hero-home-img" className="hidden lg:flex items-center justify-center p-10 hero-home-img">
-        <Image src="/welcome-page.png" alt="Traceability dashboard features image" priority="high" 
+        <Image src="/welcome-image.png" alt="Traceability dashboard features image" priority="high" 
         width={750} height={443}
         className=""/>
         
