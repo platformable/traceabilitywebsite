@@ -58,7 +58,7 @@ const dbUrl=`${process.env.DEV_BACKEND_API_URL}/users/findUser/${userEmail}`
       message: "Database Error: Failed to get user.",
     };
   }
-/*    redirect(`/home`); */
+/*    redirect(`/admin-panel`); */
 }
 
 
@@ -126,7 +126,7 @@ export async function handleCheckOutSession(prevState, formData) {
    } catch(error) {
     return error
    }
-   revalidatePath("/home",'layout');
+   revalidatePath("/admin-panel",'layout');
    redirect(checkoutSessionURL) // Navigate to the new page
 }
 export async function createUser(prevState, formData) {
@@ -165,8 +165,8 @@ export async function createUser(prevState, formData) {
     };
   }
   // Since you're updating the data displayed in the invoices route, you want to clear this cache and trigger a new request to the server. You can do this with the revalidatePath function from Next.js:
-    revalidatePath("/home/authorised-users");
-    redirect('/home/authorised-users');
+    revalidatePath("/admin-panel/authorised-users");
+    redirect('/admin-panel/authorised-users');
 }
 
 export async function updateUser(clientToken, formData) {
@@ -203,7 +203,6 @@ export async function updateUser(clientToken, formData) {
         message: "Database Error: Failed to edit User.",
       };
     }
-      //revalidatePath("/home/authorised-users");
       revalidatePath("/admin-panel/users");
 
      redirect(`/admin-panel/users`);
@@ -277,8 +276,8 @@ export async function updateUser(clientToken, formData) {
       };
     }
     // Since you're updating the data displayed in the invoices route, you want to clear this cache and trigger a new request to the server. You can do this with the revalidatePath function from Next.js:
-    revalidatePath("/home/authorised-users");
-     redirect(`/home/authorised-users`);
+    revalidatePath("/admin-panel/authorised-users");
+     redirect(`/admin-panel/authorised-users`);
   }
   export async function deleteAuth0User(initialState, formData) {
     const clientToken = formData.get("clientToken")
