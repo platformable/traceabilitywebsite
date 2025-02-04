@@ -2,31 +2,34 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import DataTable from "react-data-table-component";
-import { CSVLink } from "react-csv";
+// import { CSVLink } from "react-csv";
 import { getEcosystemTraceabilityTableData } from "../app/lib/nocodb-traceability-table-filtered";
-import axios from 'axios'
 import { useTransition } from "react";
 import Loader from "./Loader";
 import { Tooltip } from "react-tooltip";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import { columnsMultilateralOrgs, columnsStandardsProtocolsAndPolicies, columnsRegulations, columnsStandardBodies, columnsDataGovernanceModels } from "../utilities/tableColumns";
+import { columnsMultilateralOrgs,
+        columnsStandardsProtocolsAndPolicies,
+        columnsRegulations,
+        columnsStandardBodies,
+        columnsDataGovernanceModels,
+        columnsDataAndDigitalToolsProviders } from "../utilities/tableColumns";
+
 
 const navigationOptions = [
   {
     id: 2,
     name: "Governments",
-    db_label: 'government',
+    db_label: 'governments',
      bgColor: "#F2EBFF",
-    borderColor:'#8751EF'
-   /*  tableHeaders:columnsDataGovernanceModels */
+    borderColor:'#8751EF',
   },
   {
     id: 1,
-    name: "Standards bodies/Sustainability systems",
+    name: "Standards bodies / sustainability systems",
     db_label: 'standard-bodies',
     bgColor: "#F2EBFF",
-    borderColor:'#8751EF'
-   /*  tableHeaders:columns */
+    borderColor:'#8751EF',
   },
  
   {
@@ -34,24 +37,21 @@ const navigationOptions = [
     name: "Standards/Policies",
     db_label: 'policies',
      bgColor: "#C7F8FF",
-    borderColor:'#3FDEF8'
-   /*  tableHeaders:columns */
+    borderColor:'#3FDEF8',
   },
   {
     id: 4,
     name: "Regulations",
     db_label: 'regulations',
-      bgColor: "#C7F8FF",
-    borderColor:'#3FDEF8'
-   /*  tableHeaders:columnsDataGovernanceModels */
+    bgColor: "#C7F8FF",
+    borderColor:'#3FDEF8',
   },
   {
     id: 5,
     name: "Multilateral organisations",
     db_label: 'multilateral',
     bgColor: "#E8FFF3",
-    borderColor:'#36D77F'
-   /*  tableHeaders:columns */
+    borderColor:'#36D77F',
   },
   {
     id: 6,
@@ -59,8 +59,7 @@ const navigationOptions = [
     db_label: 'digital-data',
      bgColor: "#E8FFF3",
     borderColor:'#36D77F',
-    isDisabled: true
-   /*  tableHeaders:columns */
+    isDisabled: true,
   }
   
  
@@ -69,22 +68,29 @@ const navigationOptions = [
 
 export default function EcosystemParticipantTable() {
   const { user } = useUser();
-  const [newData,setNewData]=useState([])
+  const [tableData,setTableData]=useState([])
   const [selectedOption, setSelectedOption] = useState(navigationOptions[0]);
   const [isPending, startTransition] = useTransition();
-
-   useEffect(()=>{
+  const borderColor = selectedOption.borderColor
+  const bgColor = selectedOption.bgColor
+  console.log("tableData",tableData)
+  useEffect(()=>{
     const getData = async ()=>{
       const response = await getEcosystemTraceabilityTableData(selectedOption, user?.APIToken)
       if (response.errors) return; 
-      setNewData(response.data)
+
+      setTableData(response.data)
     
     }
     if (user?.APIToken) {
       startTransition(getData)
 
     }
-    },[selectedOption, user?.APIToken]) 
+  },[selectedOption, user?.APIToken]) 
+  const handleSelectedOption = (option) => {
+    setSelectedOption(option);
+    
+  };
 
   const todaysDate = new Date().toLocaleDateString("en-US", {
     day: "numeric",
@@ -96,18 +102,18 @@ export default function EcosystemParticipantTable() {
   const customStyles = {
     headCells: {
       style: {
-        backgroundColor: "#F2EBFF",
+        backgroundColor: bgColor,
         /* color: "#2E1DC4", */
         paddingTop: "10px",
         paddingBottom: "10px",
         fontWeight: "bold",
         opacity: "1",
         wordWrap: "breakWord",
-        borderTop: "1px solid #A37DEF",
-        borderLeft: "1px solid #A37DEF",
-        borderBottom: "1px solid #A37DEF",
+        borderTop: `1px solid ${borderColor}`,
+        borderLeft: `1px solid ${borderColor}`,
+        borderBottom: `1px solid ${borderColor}`,
         "&:last-child": {
-          borderRight: "1px solid #A37DEF",
+          borderRight: `1px solid ${borderColor}`,
         },
       },
       headerMod: "multiline",
@@ -116,10 +122,16 @@ export default function EcosystemParticipantTable() {
     cells: {
       style: {
         padding: "5px 16px",
-        borderLeft: "1px solid #A37DEF",
-        borderBottom: "1px solid #A37DEF",
+        borderLeft: `1px solid ${borderColor}`,
+        borderBottom: `1px solid ${borderColor}`,
         "&:last-child": {
-          borderRight: "1px solid #A37DEF",
+          borderRight: `1px solid ${borderColor}`,
+        },
+        "& a": {
+          backgroundColor: bgColor,
+          border: `1px solid ${borderColor}`,
+          width: "100%",
+          textAlign: "center", 
         },
 
         fontSize: "12px",
@@ -147,31 +159,29 @@ export default function EcosystemParticipantTable() {
     { label: "Link", key: "Link" },
   ];
 
-  const handleSelectedOption = (option) => {
-    setSelectedOption(option);
-    
-  };
-
   const returnTableHeaders = (selectedOptionName) =>{
     if(selectedOptionName ==='Regulations') {
       return columnsRegulations
     } else if(selectedOptionName ==='Multilateral organisations') {
       return columnsMultilateralOrgs
-    }else if(selectedOptionName ==='Standards bodies/Sustainability systems') {
+    }else if(selectedOptionName ==='Standards bodies / sustainability systems') {
       return columnsStandardBodies
     }else if(selectedOptionName ==='Governments') {
       return columnsDataGovernanceModels
      }else if(selectedOptionName ==='Standards/Policies') {
       return columnsStandardsProtocolsAndPolicies
+    }else if(selectedOptionName ==='Data and digital tools providers') {
+      return columnsDataAndDigitalToolsProviders
     } 
-
+  
   }
+
   return (
     <section className="container mx-auto bg-white rounded-b-md shadow-md">
         <div className="py-2 px-5 bg-[#90E5FF] border-b  border-b-[#000000] mb-5 ">
         <div className="flex items-center gap-x-5">
         <Tooltip id="my-tooltip" />
-    <img src="/mini-traceability-ecosystem-icon.svg" alt="traceability-icon" />
+         <img src="/mini-traceability-ecosystem-icon.svg" alt="traceability-icon" />
         <p className="font-bold">TRACEABILITY ECOSYSTEM TABLE</p>
         <img
               src="/info-icon.svg"
@@ -189,12 +199,14 @@ export default function EcosystemParticipantTable() {
          
             <button
             key={option.id} // Use a stable key if available (id is best)
-            className={`relative px-3 py-2 rounded-md text-xs font-bold border  ${ 
-              selectedOption.id === option.id ? `` : `border-[${option.borderColor}]`
-            }`}
+            className={`relative px-3 py-2 rounded-md text-xs font-bold border ${option.isDisabled ? 'bg-[#ad595936]' : ''} `}
             disabled={option.isDisabled}
             onClick={() => handleSelectedOption(option)}
-            style={{ borderColor: selectedOption.id === option.id ? option.borderColor : option.borderColor,backgroundColor:selectedOption.id===option.id ? option.bgColor:'' }} 
+            style={{ 
+              borderColor: option.isDisabled ? '#f0f0f0' :  option.borderColor,
+              backgroundColor:selectedOption.id===option.id ? option.bgColor:'' 
+              
+            }} 
           >
             {option?.name}
           </button>
@@ -206,10 +218,6 @@ export default function EcosystemParticipantTable() {
         
        
       <div className="my-5  md:px-5 px-5" id="cosystem-participant-table-content">
-      {/*   <div className="bg-[#3423C5] my-5 rounded-t-md py-2 px-5">
-          <img src="" alt="" />
-          <h3 className="text-white font-bold">{selectedOption?.name}</h3>
-        </div> */}
         <div
           className="flex gap-x-5 mb-5 items-center place-content-between "
           id="cosystem-participant-table"
@@ -257,7 +265,7 @@ export default function EcosystemParticipantTable() {
         <div id="ecosystem-participant-table" className="md:px-0 px-5">
           <DataTable
             columns={returnTableHeaders(selectedOption?.name)}
-            data={newData}
+            data={tableData}
             pagination
             paginationPerPage={15}
             paginationRowsPerPageOptions={[15]}
@@ -269,8 +277,8 @@ export default function EcosystemParticipantTable() {
             // dense={true}
             customStyles={customStyles}
             // defaultSortFieldId={1}
-              progressPending={isPending}
-              progressComponent={<Loader />}
+            progressPending={isPending}
+            progressComponent={<Loader />}
           />
         </div>
       </div>

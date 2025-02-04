@@ -1,5 +1,5 @@
-//import html2canvas from 'html2canvas';
-//import axios from 'axios';
+// import html2canvas from 'html2canvas';
+import axios from 'axios';
 
 export const capitalizeFirstLetter = (str) => {
   if (str.length === 0) {
@@ -68,21 +68,21 @@ export const calculateTooltipPositionBelow = (event) => {
   return { x: offsetX, y: offsetY };
 };
 
-export const handleCaptureImage = async (id) => {
-    const item = document.getElementById(id);
-    const canvas = await html2canvas(item, { allowTaint: true, useCORS: true });
+// export const handleCaptureImage = async (id) => {
+//     const item = document.getElementById(id);
+//     const canvas = await html2canvas(item, { allowTaint: true, useCORS: true });
 
-    const data = canvas.toDataURL("image/png", 1);
-    const link = document.createElement("a");
+//     const data = canvas.toDataURL("image/png", 1);
+//     const link = document.createElement("a");
 
-    if (typeof link.download === "string") {
-      link.href = data;
-      link.download = "Regulation_map.png";
-      link.click();
-    } else {
-      window.open(data);
-    }
-  };
+//     if (typeof link.download === "string") {
+//       link.href = data;
+//       link.download = "Regulation_map.png";
+//       link.click();
+//     } else {
+//       window.open(data);
+//     }
+//   };
 
 export const handleDownloadPDF = async ({pdfUrl, filename}) => {
   try {
