@@ -24,7 +24,7 @@ export default async function AdminPanel() {
                 {/* <span className="font-bold "> { user?.name } </span> */}
               </div>
               <span className="font-bold text-3xl">
-                What do want to do today?
+                What do you want to do today?
               </span>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 gap-2">
