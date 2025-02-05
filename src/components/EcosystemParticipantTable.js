@@ -217,7 +217,8 @@ export default function EcosystemParticipantTable() {
       </div>
         
        
-      <div className="my-5  md:px-5 px-5" id="cosystem-participant-table-content">
+      <div className="my-2  md:px-2 px-5 relative" id="cosystem-participant-table-content">
+
         <div
           className="flex gap-x-5 mb-5 items-center place-content-between "
           id="cosystem-participant-table"
@@ -262,7 +263,7 @@ export default function EcosystemParticipantTable() {
           </div>
         </div>
 
-        <div id="ecosystem-participant-table" className="md:px-0 px-5">
+        <div id="ecosystem-participant-table" className="relative md:px-0 px-5">
           <DataTable
             columns={returnTableHeaders(selectedOption?.name)}
             data={tableData}
@@ -280,8 +281,21 @@ export default function EcosystemParticipantTable() {
             progressPending={isPending}
             progressComponent={<Loader />}
           />
+          
+        <div className="absolute  bottom-3 left-0 gap-2 cursor-pointer w-full " onClick={()=>window.scrollTo(0,0)}>
+         <Link href="#ecosystem-svg" className="flex items-center gap-2 font-bold">
+           <img src="/arrow_top_icon.svg" alt="back to ecosystem" className="text-xs flex justify-center" width={20} height={20} />
+            
+            Back to ecosystem
+
+         </Link>
+         
+
+        </div>
+
         </div>
       </div>
+      
     </section>
   );
 }
