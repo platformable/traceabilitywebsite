@@ -28,7 +28,6 @@ export default function UpdateUser({myUser, user}) {
     const initialState = { message: null, errors: false };   
     const [updateUserState, updateUserAction] = useFormState(updateUserSettings, initialState)
     const router = useRouter();
-
     useEffect(() => {
         if(updateUserState.message === 'User settings updated successfully' && updateUserState.error === false) {
             // setTimeout(() => {
