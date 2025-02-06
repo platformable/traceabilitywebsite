@@ -34,19 +34,19 @@ export default async function AdminPanel() {
                   <Image
                     src="/regulation-dashboard-icon.svg"
                     alt="dashboard icon"
-                    width={50}
-                    height={50}
+                    width={45}
+                    height={45}
                   />
                 </div>
                 Traceability  <br />
-                dashboard
+                Dashboard
               </button>
             </Link>
-            <Link href="/dashboard/country" prefetch={true}>
+            <Link href="https://platformable.com/understand" target="_blank" prefetch={true}>
               <button className="bg-white w-full flex flex-col items-center  h-56 gap-y-4 rounded-md font-bold shadow px-6 py-5 lg:p-8">
                 <div className="circular-gradient  transition rounded-full p-6 aspect-square">
                   <Image
-                    src="/open-ecosystem-icon.svg"
+                    src="/open_ecosystem_icon.svg"
                     alt="dashboard icon"
                     width={50}
                     height={50}
@@ -57,26 +57,26 @@ export default async function AdminPanel() {
               </button>
             </Link>
         
-            {/* <Link href="/standards" prefetch={true}>
+            <Link href="https://platformable.com/blog/the-traceability-ecosystem" prefetch={true}>
               <button className="bg-white w-full flex flex-col items-center  h-56 gap-y-4 rounded-md font-bold shadow px-6 py-5 lg:p-8">
                 <div className="circular-gradient  transition rounded-full p-6 ">
                   <Image
-                    src="/standards-icon.svg"
+                    src="/what_is_traceability.svg"
                     alt="standards icon"
                     className="aspect-square"
                     width={50}
                     height={50}
                   />
                 </div>
-                Standards
+                What is the traceability ecosystem?
               </button>
-            </Link> */}
+            </Link>
             {user?.role === "Supervisor" ? (
               <Link href="admin-panel/users">
                 <button className="bg-white w-full flex flex-col items-center  h-56 gap-y-4 rounded-md font-bold shadow px-6 py-5 lg:p-8">
                   <div className="circular-gradient transition rounded-full p-6 aspect-square">
                     <Image
-                      src="/manage-users-icon.svg"
+                      src="/manage_users_icon.svg"
                       alt="user management icon"
                       width={50}
                       height={50}

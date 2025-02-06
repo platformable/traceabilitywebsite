@@ -15,7 +15,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
     <section id="ecosystem-svg" className="container mx-auto mb-10 bg-white rounded-b-md shadow-md">
       <div className="py-2 px-5 bg-[#90E5FF] border-b  border-b-[#000000] ">
         <div className="flex items-center gap-x-5">
-          <Tooltip id="my-tooltip" />
+          <Tooltip id="my-tooltip"  />
           <img
             src="/mini-traceability-ecosystem-icon.svg"
             alt="traceability-icon"
@@ -26,7 +26,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
             alt="traceability-icon"
             width={15}
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="The map shows the implementation approaches based on the filters above."
+            data-tooltip-content="The map shows all the stakeholders and common components across the traceability ecosystem."
           />
         </div>
       </div>

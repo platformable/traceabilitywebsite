@@ -156,7 +156,7 @@ h1 {
 }
 
 .bg-news-scroll-row {
-  background: transparent linear-gradient(90deg, #F5F8FD  0%, #FDF2F1  100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(90deg, #FBC6FD60  0%, #C7F8FF60  100%) 0% 0% no-repeat padding-box;
   border-right: 3px solid white;
 }
 /* /* To style the document scrollbar, remove `.custom-scrollbar` */
@@ -182,12 +182,6 @@ h1 {
 
 }
 
-.bg-news-scroll-row {
-  background: transparent linear-gradient(90deg, #F5F8FD  0%, #FDF2F1  100%) 0% 0% no-repeat padding-box;
-  border-right: 3px solid white;
-}
-
-/* sdfa dfas dfasdfadsfasdfadsfa */
 
 
 .bg-regulations {

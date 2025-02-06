@@ -33,12 +33,12 @@ export default function NavMenu() {
                   <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Support</a>
                   <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-2">License</a> */}
             
-
+{/* 
             <Link href="https://accelerator.platformable.com">
               <p className="block w-full px-4 py-2 text-left text-sm hover:bg-[var(--button-background-forms)] hover:font-bold">
                 Dashboard Main 
               </p>
-            </Link>
+            </Link> */}
             {/* {
               user.role==='User' &&   <ManageBilling id="managebilling-link" customerId={user?.userStripeId} >
               <p className="block w-full px-4 py-2 text-left text-sm hover:bg-[var(--button-background-forms)] hover:font-bold">
@@ -55,7 +55,7 @@ export default function NavMenu() {
               </p>
             </Link>
             }
-            {user?.role === "Supervisor" ? (
+            {/* {user?.role === "Supervisor" ? (
               <Link  href="https://development--platformabledashboard.netlify.app/">
               <p className="block w-full px-4 py-2 text-left text-sm hover:bg-[var(--button-background-forms)] hover:font-bold">
                 Dashboard Dev 
@@ -63,7 +63,7 @@ export default function NavMenu() {
             </Link>
             ) : (
               ""
-            )}
+            )} */}
            
 
             <div className="lg:hidden">

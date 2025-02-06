@@ -188,7 +188,7 @@ export default function EcosystemParticipantTable() {
               alt=""
               width={15}
               data-tooltip-id="my-tooltip"
-              data-tooltip-content="The map shows the implementation approaches based on the filters above."
+              data-tooltip-content="The tables list all known stakeholders or resources in key ecosystem categories."
             />
         </div>
       </div>
