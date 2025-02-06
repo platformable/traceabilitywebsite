@@ -11,12 +11,12 @@ const disclaimerFutureFeatures = [
     title: "Country profiles",
   },
   {
-    icon: "/country_profile_icon.svg",
+    icon: "/governments_icon.svg",
     status: "Active",
     title: "Governments, standards bodies, and multilateral organisations that are involved in the traceability ecosystem",
   },
   {
-    icon: "/end_user_needs_icon.svg",
+    icon: "/data_digital_tools_prov.svg",
     status: "Coming soon",
     title: "Data and digital tools providers",
   },
