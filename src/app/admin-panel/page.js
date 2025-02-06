@@ -34,8 +34,8 @@ export default async function AdminPanel() {
                   <Image
                     src="/regulation-dashboard-icon.svg"
                     alt="dashboard icon"
-                    width={50}
-                    height={50}
+                    width={45}
+                    height={45}
                   />
                 </div>
                 Traceability  <br />
@@ -61,7 +61,7 @@ export default async function AdminPanel() {
               <button className="bg-white w-full flex flex-col items-center  h-56 gap-y-4 rounded-md font-bold shadow px-6 py-5 lg:p-8">
                 <div className="circular-gradient  transition rounded-full p-6 ">
                   <Image
-                    src="/open_ecosystem_icon.svg"
+                    src="/what_is_traceability.svg"
                     alt="standards icon"
                     className="aspect-square"
                     width={50}
