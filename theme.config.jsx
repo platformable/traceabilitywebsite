@@ -15,7 +15,7 @@ export default {
       <meta property="og:description" content="The next site builder" />
     </>
   ),
-  docsRepositoryBase: 'https://github.com/platformable/genericdashboard/tree/main/src/pages/docs',
+  docsRepositoryBase: 'https://github.com/platformable/traceabilitywebsite/tree/main/',
   primaryHue: 271,
   primarySaturation: 92,
  
