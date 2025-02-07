@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 import Loader from "@/components/Loader";
 import Disclaimer from "@/components/Disclaimer";
-import News from "@/components/News";
+import News from "@/components/News/News";
 
 
 export default async function AdminPanel() {
