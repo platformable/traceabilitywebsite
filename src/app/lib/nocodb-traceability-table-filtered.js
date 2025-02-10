@@ -3,11 +3,9 @@
 
 export async function getEcosystemTraceabilityTableData(selectedOption, APIToken) {
 
-  // console.log("sessions",session?.APIToken)
   const selectedParticipant = selectedOption?.db_label
 
   try {
-    console.log("selectedParticipant",`${process.env.DEV_BACKEND_API_URL}/ecosystem/${selectedParticipant}`)
     const res = await fetch(`${process.env.DEV_BACKEND_API_URL}/ecosystem/${selectedParticipant}`, {
       method: 'GET',
       headers: {
@@ -24,7 +22,7 @@ export async function getEcosystemTraceabilityTableData(selectedOption, APIToken
 
     return {data: data, errors: false}
   } catch (error){
-    console.log("error en el sdk" , error)
+    console.log("Error in service" , error)
     return {data: [], errors: true}
 
   }
