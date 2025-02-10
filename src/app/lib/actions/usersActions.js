@@ -91,10 +91,6 @@ export async function handleCustomerPortal(prevState, formData) {
 
 }
 
-// Check this in the console
-// curl https://api.stripe.com/v1/checkout/sessions   -u "sk_test_IkHMzLtdyBJT41VUt8OrCjrn00xL4jYJXb:"   --data-urlencode
-// success_url="https://example.com/success"   -d "line_items[0][price]"=price_1PlZgFGThNJWcMfsMTtAKTv5   -d "line_items[0
-// ][quantity]"=1   -d mode=subscription
 export async function handleCheckOutSession(prevState, formData) {
   let checkoutSessionURL;
   const customerId = formData.get("cus_id").trim()
@@ -154,10 +150,6 @@ export async function createUser(prevState, formData) {
         return { message: result.message}
     }
 
-    // console.log("user creation", response)   
-    
-
-    // return { message: result.message};
   } catch (error) {
     console.log("user creation error", error)
     return {

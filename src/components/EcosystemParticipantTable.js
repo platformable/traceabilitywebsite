@@ -217,7 +217,7 @@ export default function EcosystemParticipantTable() {
       </div>
         
        
-      <div className="my-2  md:px-2 px-5 relative" id="cosystem-participant-table-content">
+      <div className="my-2  px-5 relative" id="ecosystem-participant-table-content">
 
         <div
           className="flex gap-x-5 mb-5 items-center place-content-between "
