@@ -2140,7 +2140,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
                   letter-spacing="0.007em"
                 >
                   <tspan x="-12.314" y="0">
-                    {government}
+                    {government || 0}
                   </tspan>
                 </text>
 
@@ -2201,7 +2201,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
                 letter-spacing="0.007em"
               >
                 <tspan x="-12.314" y="0">
-                  {multilateral}
+                  {multilateral || 0}
                 </tspan>
               </text>
 
@@ -2328,7 +2328,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
                 z-index="999"
               >
                 <tspan x="300" y="450">
-                  {policies}
+                  {policies || 0}
                 </tspan>
               </text>
 
@@ -2364,7 +2364,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
                 letter-spacing="0.007em"
               >
                 <tspan x="-12.314" y="0">
-                  {regulations}
+                  {regulations || 0}
                 </tspan>
               </text>
               {/* <text id="_20-6" data-name="20" transform="translate(332.068 776.826)" fontSize="22" fontFamily="Arial-BoldMT, Arial" fontWeight="700" letter-spacing="0.007em"><tspan x="-12.314" y="0">20</tspan></text> */}
