@@ -42,7 +42,7 @@ export async function getEcosystemVisualizationTotals() {
       }
     )
     const data = await getData.json()
-    console.log("data", data)
+    console.log("getEcosystemVisualizationTotals", data)
     return { data: data[0], errors: {} }
   } catch (error) {
     console.error(error)

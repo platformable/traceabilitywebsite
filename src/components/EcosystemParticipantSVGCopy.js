@@ -2154,7 +2154,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
                   letter-spacing="0.007em"
                 >
                   <tspan x="-12.314" y="0">
-                    {standardsbodies}
+                    {standardsbodies || 0}
                   </tspan>
                 </text>
               </g>
@@ -2327,7 +2327,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
                 letter-spacing="0.007em"
                 z-index="999"
               >
-                <tspan x="300" y="450" zIndex="999">
+                <tspan x="300" y="450">
                   {policies}
                 </tspan>
               </text>
