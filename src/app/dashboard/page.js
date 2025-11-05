@@ -11,7 +11,6 @@ export default async function Dashboard() {
   /* const ecosystemViewData = await getEcosystemVisualizationData() */
   const ecosystemViewData = await getEcosystemVisualizationTotals()
   console.log("ecosystemViewData", ecosystemViewData)
-
   return (
     <main id="home-content" className="relative pb-7 pt-20">
       <Hero />
