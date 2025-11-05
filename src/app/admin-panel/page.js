@@ -5,11 +5,7 @@ import { Suspense } from "react"
 
 import Loader from "@/components/Loader"
 import Disclaimer from "@/components/Disclaimer"
-import News from "@/components/News/News"
-
-import Loader from "@/components/Loader"
-import Disclaimer from "@/components/Disclaimer"
-import News from "@/components/News"
+/* import News from "@/components/News" */
 
 export default async function AdminPanel() {
   const { user } = (await getSession()) || ""
@@ -103,11 +99,11 @@ export default async function AdminPanel() {
               )}
             </div>
           </div>
-          <div className="lg:pt-20 pt-0 mb-10">
+          {/*   <div className="lg:pt-20 pt-0 mb-10">
             <Suspense fallback={<Loader />}>
               <News />
             </Suspense>
-          </div>
+          </div> */}
         </div>
 
         <Disclaimer />
