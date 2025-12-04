@@ -13,6 +13,7 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
 
   const { standardsbodies, government, multilateral, policies, regulations } =
     ecosystemViewData?.data || {}
+  console.log("standardsbodies", standardsbodies)
 
   return (
     <section
@@ -2343,17 +2344,17 @@ export default function EcosystemParticipantSVGCopy({ ecosystemViewData }) {
                 <rect width="44" height="48" rx="6" stroke="none" />
                 <rect x="1" y="1" width="42" height="46" rx="5" fill="none" />
               </g>
-              <g
+              {/*  <g
                 id="Rectangle_5818"
                 data-name="Rectangle 5818"
                 transform="translate(309 745.032)"
                 fill="#e5fdff"
                 stroke="#00d5f7"
                 strokeWidth="2"
-              >
+              > ##hidden for now##
                 <rect width="44" height="48" rx="6" stroke="none" />
                 <rect x="1" y="1" width="42" height="46" rx="5" fill="none" />
-              </g>
+              </g> */}
               <text
                 id="_20-5"
                 data-name="20"
